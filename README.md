@@ -4,6 +4,11 @@
 
 A Next.js application that provides custom instruction sets for ChatGPT, enhancing user experience with tailored AI responses.
 
+## Screenshot
+
+![Uploading image.png…]()
+
+
 ## Installation
 
 1. Clone the repository:
