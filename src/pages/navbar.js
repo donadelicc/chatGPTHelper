@@ -3,21 +3,12 @@ import Link from 'next/link';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './firebase'; // Importer fra din firebase.js fil
 import styles from '@/styles/Home.module.css';
+import { useAuth } from './auth/authDetails'; // Angi riktig sti til AuthContext
+
 
 const NavBar = () => {
-  const [authUser, setAuthUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
+  //const [authUser, setAuthUser] = useState(null);
+  const { authUser } = useAuth();
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -38,6 +29,8 @@ const NavBar = () => {
         <>
           <span>{`Logged in as ${authUser.email}`}</span>
           <button onClick={handleSignOut}>Log Out</button>
+          <Link href="/my-instructions">My Instructions</Link>
+
         </>
       ) : (
         <>

@@ -1,16 +1,14 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Home.module.css';
 
 import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
-import SignIn from './auth/signin';
-import SignUp from './auth/signup';
-import AuthDetails from './auth/authDetails';
+import { useAuth } from './auth/authDetails'; // Angi riktig sti til AuthContext
 
 
 export default function Home() {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const { authUser } = useAuth();
 
 
   const dropdownContents = [
@@ -144,6 +142,16 @@ export default function Home() {
         This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Simply click on the dropdowns below to view different sets of instructions. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
         </p>
         
+        <div>
+      {authUser ? (
+        <button className={styles.createInstructionButton}>Create Instruction</button>
+      ) : (
+        <p>
+          Please log in to create instructions
+        </p>
+      )}
+      </div>
+
         <div className={styles.dropdownContainer}>
         {dropdownContents.map((item, index) => (
           <div key={index}>

@@ -1,48 +1,31 @@
-import React, {useEffect, useState} from "react";
-import { auth } from '../firebase';
-import { onAuthStateChanged, signOut} from "firebase/auth";
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase'; // Importer fra din firebase.js fil
 
-const AuthDetails = () => {
-    const [authUser, setAuthUser] = useState(null);
+export const AuthContext = createContext();
 
-    useEffect(() => {
-        const listen = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setAuthUser(user);
-            } else {
-                setAuthUser(null);
-            }
-        });
-        return () => {
-            listen();
-        }
+export const AuthProvider = ({ children }) => {
+  const [authUser, setAuthUser] = useState(null);
 
-    }, []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
 
-    const userSignOut = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            console.log("Sign-out successful.");
-        }).catch((error) => {
-            // An error happened.
-            console.log(error);
-        });
-    }
+    return () => unsubscribe();
+  }, []);
 
-    return <div>{
-        authUser ? 
-        <>
-        <p> 
-            {`Signed In as ${authUser.email}`}
-        </p> 
-            <button onClick={
-                userSignOut
-            }>Sign Out</button>
-        </>
-        : <p>
-            Signed Out
-        </p>
-    }</div>;
-}
+  return (
+    <AuthContext.Provider value={{ authUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
-export default AuthDetails;
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import styles from '@/styles/Home.module.css';
+import { useRouter } from 'next/router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
 
 const SignIn = () => {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,6 +18,7 @@ const SignIn = () => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user);
+                router.push('/');  // Omdirigerer til hovedsiden
                 // ...
             })
             .catch((error) => {
