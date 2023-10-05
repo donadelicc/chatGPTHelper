@@ -3,6 +3,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import styles from '@/styles/Home.module.css';
 
+import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
+import SignIn from './auth/signin';
+import SignUp from './auth/signup';
+import AuthDetails from './auth/authDetails';
+
+
 export default function Home() {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -120,18 +126,14 @@ export default function Home() {
     setActiveDropdown(null);
   };
 
+  
+
   return (
     <>
       <Head>
         <title>ChatGPT Assistant</title>
       </Head>
-      
-      <nav className={styles.navbar}>
-    
-          <img className={styles.logo} src="/gpt-logo.png" alt="Logo" />
-        
-        <a href="mailto:preb1.anders1@gmail.com" className={styles.contactLink}>Contact</a>
-      </nav>
+      <NavBar />
       
       <main className={styles.main}>
        
@@ -156,6 +158,7 @@ export default function Home() {
         ))}
       </div>
 
+    
       </main>
     </>
   );

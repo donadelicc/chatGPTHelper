@@ -1,0 +1,12 @@
+
+Your project
+Project name
+chatGPTInstructions
+Project ID 
+chatgptinstructions
+Project number 
+450895086920
+Default GCP resource location 
+Not yet selected
+Web API Key
+AIzaSyCIJIB1KZvIH4UT4ZmUN7yk1hmHwQ-ETWw
