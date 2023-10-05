@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from '@/styles/Home.module.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase';
+import styles from '@/styles/Auth.module.css';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -30,13 +30,13 @@ const SignUp = () => {
                 onSubmit={signUp}
             >
                 <h1 className={styles.signin_header}>Create an account</h1>
-                <input 
+                <input className={styles.input}
                     type='email' 
                     placeholder='Enter your email' 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)}    
                 ></input>
-                <input 
+                <input className={styles.input}
                 type='password' 
                 placeholder='Enter your password' 
                 value={password} 

@@ -1,0 +1,57 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #4CAF50;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+
+  .linkStyle {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .contactLink {
+    margin-right: 10px;
+    text-decoration: none;
+    color: inherit;
+    color: #4CAF50;
+  }
+
+  .myInstructionBtn,
+  .loginBtn,
+  .signupBtn,
+  .logoutBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  

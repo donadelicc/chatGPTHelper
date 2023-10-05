@@ -141,17 +141,18 @@ export default function Home() {
         This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Simply click on the dropdowns below to view different sets of instructions. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
         </p>
         
-        <div>
       {authUser ? (
-        <button className={styles.createInstructionButton}>Create Instruction</button>
+        <div className={styles.createrInstructionContainer}>
+          <p className={styles.customIntructionTxt} >Click here to create your own instructions</p>
+          <button className={styles.createInstructionButton}>Create Instruction</button>
+        </div>
       ) : (
         <p>
-          Please log in to create instructions
+          Please log in to create your own instructions
         </p>
       )}
-      </div>
-
         <div className={styles.dropdownContainer}>
+          <p className={styles.intructionDescription}>Good 2 go ChatGPT instructions</p>
         {dropdownContents.map((item, index) => (
           <div key={index}>
             <button className={styles.dropdown} onClick={() => handleDropdownClick(index)}>{item.header}</button>

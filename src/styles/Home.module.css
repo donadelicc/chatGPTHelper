@@ -26,6 +26,33 @@
   margin-bottom: 20px;
 }
 
+.customIntructionTxt {
+  font-size: 20px;
+  color: #4CAF50;
+}
+
+.createrInstructionContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
+  border-top: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
+}
+
+.createInstructionButton {
+    background-color: #4CAF50;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
 
 
 /* Dropdown container */
@@ -34,6 +61,11 @@
   flex-direction: column;
   align-items: center;
   gap: 20px; /* Mellomrom mellom dropdowns */
+}
+
+.intructionDescription {
+  font-size: 25px;
+  color: #4CAF50;
 }
 
 /* Dropdown button */
@@ -70,28 +102,4 @@
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-}
-
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 2px solid #4CAF50; /* Grønn linje under NavBar */
-}
-
-.logo {
-  width: 50px; /* Du kan justere dette */
-  height: 50px;
-}
-
-.contactLink {
-  color: #4CAF50; /* Grønn tekst */
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.contactLink:hover {
-  text-decoration: underline;
 }
