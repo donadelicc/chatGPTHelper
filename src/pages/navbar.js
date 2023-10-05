@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.left}>
-        <img className={styles.logo} src="/gpt-logo.png" alt="Logo" />
+       <img className={styles.logo} src="/gpt-logo.png" alt="Logo" />    
       </div>
       <div className={styles.center}>
         {authUser ? (
