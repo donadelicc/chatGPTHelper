@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import { AuthProvider } from './auth/authDetails'; // Angi riktig sti til AuthContext
+import { AuthProvider } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 
 function MyApp({ Component, pageProps }) {
   return (

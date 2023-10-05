@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import styles from '@/styles/Home.module.css';
-
 import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
-import { useAuth } from './auth/authDetails'; // Angi riktig sti til AuthContext
+import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 
 
 export default function Home() {

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from '@/styles/Home.module.css';
 import { useRouter } from 'next/router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../../config/firebase';
 
 
 const SignIn = () => {

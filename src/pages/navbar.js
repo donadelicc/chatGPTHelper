@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from './firebase'; // Importer fra din firebase.js fil
+import { auth } from '../config/firebase'; // Importer fra din firebase.js fil
 import styles from '@/styles/Home.module.css';
-import { useAuth } from './auth/authDetails'; // Angi riktig sti til AuthContext
+import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 
 
 const NavBar = () => {
