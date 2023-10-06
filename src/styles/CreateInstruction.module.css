@@ -1,0 +1,68 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .header {
+    color: #4CAF50; /* Grønn farge */
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .formContainer {
+    position: relative;
+    border-radius: 4px;
+    border-color: #ccc;
+    padding: 15px 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+  }
+  
+  .label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #4CAF50; /* Grønn farge */
+  }
+  
+  .input {
+    width: 50%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: black;
+    color: #4CAF50;
+  }
+  
+  .textarea {
+    width: 150%;
+    min-height: 100px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: black;
+    color: #4CAF50;
+    resize: vertical;
+  }
+  
+  .submitButton {
+    background-color: #4CAF50; /* Grønn farge */
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.2rem;
+  }
+  
+  .submitButton:hover {
+    background-color: #45a049;
+  }
+  

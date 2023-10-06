@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from '@/styles/Home.module.css';
 import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -123,8 +124,6 @@ export default function Home() {
     setActiveDropdown(null);
   };
 
-  
-
   return (
     <>
       <Head>
@@ -142,10 +141,16 @@ export default function Home() {
         </p>
         
       {authUser ? (
-        <div className={styles.createrInstructionContainer}>
-          <p className={styles.customIntructionTxt} >Click here to create your own instructions</p>
-          <button className={styles.createInstructionButton}>Create Instruction</button>
-        </div>
+        <>
+        <div className={styles.createInstructionContainer}>
+          <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
+          <Link href="/createInstruction" legacyBehavior>
+            <button className={styles.createInstructionButton}>Create Instruction</button>
+        </Link>
+      </div>
+      </>
+
+
       ) : (
         <p>
           Please log in to create your own instructions
