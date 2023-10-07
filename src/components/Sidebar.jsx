@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../styles/Sidebar.module.css"
-import { array } from '@/defaultInstructions'
+import { instructionContents } from '@/defaultInstructions'
 
 // * Responsible for navigating to the default and custom instructions.
 // * If logged in, let the user navigate to the "New instructions" page.
 const Sidebar = () => {
   
-  const [instructions, setInstructions] = useState(array)
+  const [instructions, setInstructions] = useState(instructionContents)
   const [isOpen, setIsOpen] = useState(false)
 
   // useEffect(() =>{
@@ -53,7 +53,7 @@ const Sidebar = () => {
       <div className={styles.instructions__container}>
         <h3 className={styles.instruction__label}>my custom instructions</h3>
         <ul className={styles.instruction__list}>
-            {/* TODO: Create links */}
+            {/* TODO: Dynamically get users custom instructions */}
             <li className={styles.instruction}>CV creator</li>
             <li className={styles.instruction}>Rhythmic help</li>
             <li className={styles.instruction}>Formal Messages</li>

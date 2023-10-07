@@ -1,6 +1,6 @@
 
 
-export const array = [
+export const instructionContents = [
   {
       header: "General instructions", 
       instruction: [
