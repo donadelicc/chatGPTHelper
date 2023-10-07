@@ -23,7 +23,7 @@ export default function Home() {
       <Head>
         <title>ChatGPT Assistant</title>
       </Head>
-        {/* <NavBar /> */}
+        <NavBar />
       <div style={{display:"flex"}}>
         <Sidebar />
         <Main />
