@@ -1,0 +1,54 @@
+
+.container{
+   flex: 1;
+    background-color: #202123;
+    font-family: sans-serif;
+    padding: 1rem;
+}
+
+/* HEADER */
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* HEADER BUTTONS */
+.button{
+    background-color: red;
+    font-size: 1.5rem;
+}
+.newInstruction__button, .closeMenu__button{
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    border: 2px solid #343541;
+    background-color: transparent;
+    color: white;
+    
+}
+.newInstruction__button{
+}
+.closeMenu__button{
+}
+
+
+/* INSTRUCTIONS SECTION*/
+.instructions__container{
+    margin-top: 4rem;
+}
+.instruction__label{
+    font-size: .8rem;
+    color: #8E8E9F;
+    text-transform: capitalize;
+}
+.instruction__list{
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+.instruction{
+    font-weight: bold;
+}
