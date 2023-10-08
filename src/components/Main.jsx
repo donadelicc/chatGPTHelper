@@ -2,13 +2,19 @@ import React, {useState} from 'react'
 import styles from "../styles/Home.module.css"
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 import Link from 'next/link'
+import {FaClipboardList} from "react-icons/fa"
+import {BsCheck2All} from "react-icons/bs"
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
 const Main = ({currentInstruction}) => {
 
     const { authUser } = useAuth();
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const[copied, setCopied] = useState(false)
+
 
     let header = ""
-    let instructions = ""
+    let instructions = []
 
     if(currentInstruction){
       header = currentInstruction.header
@@ -170,12 +176,34 @@ const Main = ({currentInstruction}) => {
         <p>Please log in to create your own instructions</p>
        </div>
       )}
-      <div>
-        <h3>{header}</h3>
-        <div>
+      <div className={styles.instruction__container}>
+        <div className={styles.instruction__header}>
+        <h3 className={styles.instruction_title}>{header} :</h3>
+          {/* Library lets us copy the text */}
+          <CopyToClipboard 
+            text={instructions}
+            style={{ backgroundColor:"inherit", border:"none", color:"white", cursor:"pointer", display:"flex", alignItems:"center", gap:"5px"}}>
+            <div onClick={() => setCopied(true)}>
+            { copied ? (
+                <>
+                <BsCheck2All size={20}/>
+              </>
+            ): (
+              <>
+                <FaClipboardList size={20}/>
+              </>
+            )}
+            <span style={{fontSize:"1rem"}}>{copied ? "copied!" : "copy"}</span>
+            </div>
+          </CopyToClipboard>
+        </div>
+          <div className={styles.instruction__list}>{instructions.map((instruction) =>(
+            <li className={styles.instruction__item}>* {instruction}</li>
+            ))}
+          </div>
 
         </div>
-      </div>
+      
 
     
       </main>

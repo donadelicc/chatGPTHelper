@@ -12,11 +12,12 @@ import { instructionContents } from '@/defaultInstructions';
 
 export default function Home() {
   const [instructions] = useState(instructionContents)
-  const [currentInstruction, setCurrentInstruction] = useState()
+  // const random = Math.floor(Math.random(0) * instructions.length -1)
+  const [defaultInstruction] = useState(instructions[0])
+  const [currentInstruction, setCurrentInstruction] = useState(defaultInstruction)
 
   // const [activeDropdown, setActiveDropdown] = useState(null);
   //const { authUser } = useAuth();
-
   useEffect(() => {
     console.log(currentInstruction)
   }, [currentInstruction])
@@ -29,7 +30,7 @@ export default function Home() {
       <Head>
         <title>ChatGPT Assistant</title>
       </Head>
-        <NavBar />
+        {/* <NavBar /> */}
       <div style={{display:"flex"}}>
         <Sidebar defaultInstructions={instructions} setCurrentInstruction={setCurrentInstruction}/>
         
