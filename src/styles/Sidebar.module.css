@@ -2,7 +2,7 @@
 .container{
     flex: 1;
     height: 100vh;
-    background-color: #202123;
+    background-color: var(--dark-gray-color);
     font-family: sans-serif;
     padding: 1rem;
 }

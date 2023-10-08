@@ -2,10 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 
+:root{
+  /* * COLORS * */
+  --light-gray-color: #444654;
+  --mid-gray-color: #343541;
+  --dark-gray-color:  #202123;
+  --container-color: rgba(32, 33, 35, 0.5);
+  --text-color: rgb(192, 192, 192);
+  --green-color: #4CAF50;
+  --opacity: 0.5;
+  /* * FONT SIZES * */
+  --big-title: 2rem;
+  --title-size: 1.5rem;
+  --text-size: 1rem
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #444654;
-  color: white;
+  background-color: var(--light-gray-color);
+  color: var(--text-color);
   font-family: 'Poppins', sans-serif;
 }

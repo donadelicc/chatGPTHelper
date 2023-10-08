@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
   
   const [instructions, setInstructions] = useState(defaultInstructions)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
 
   // useEffect(() =>{
   //   setInstructions(array)

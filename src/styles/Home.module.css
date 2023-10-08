@@ -17,15 +17,16 @@
 
 /* INTRODUCTION SECTION */
 .introduction{
-  color: #e1e1e1;
+  color: var(--text-color);
 }
 
 /* Title and description */
 .title {
-  color: white;
+  font-size: var(--big-title);
+  color: var(--text-color);
 }
 .introductionContainer{
-  background-color: #20212376;
+  background-color: var(--container-color);
   padding: .5rem 2rem;
   border-radius: .5rem;
  
@@ -35,24 +36,23 @@
 }
 .customInstructionTxt {
   font-size: 1rem;
-  color: #88868d;
+  color: var(--text-color);
 }
 .createInstructionContainer {
-  
   margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  border-bottom: 2px solid #868686;
-  border-top: 2px solid #868686; 
+  border-bottom: 2px solid var(--text-color);
+  border-top: 2px solid var(--text-color); 
 }
 
 .createInstructionButton {
     background-color: inherit;
-    color: #4CAF50;
+    color: var(--green-color);
     padding: 1rem 2rem;
-    border: 2px solid #4CAF50;
+    border: 2px solid var(--green-color);
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
@@ -61,14 +61,14 @@
     transition: all 200ms;
 }
 .createInstructionButton:hover{
-  background-color: #4CAF50;
+  background-color: var(--green-color);
   color: white;
 }
 
 /* INSTRUCTION SECTION */
 .instruction__container{
   border-radius: .5rem;
-  background-color: #343541;
+  background-color: var(--mid-gray-color);
   overflow: hidden;
   height: fit-content;
 }
@@ -89,7 +89,7 @@
   height: fit-content;
 }
 .instruction__list{
-  background-color: #20212376;
+  background-color: var(--container-color);
   height: fit-content;
   padding: 2rem 1rem;
   list-style: none;

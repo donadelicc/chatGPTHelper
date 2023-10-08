@@ -197,8 +197,8 @@ const Main = ({currentInstruction}) => {
             </div>
           </CopyToClipboard>
         </div>
-          <div className={styles.instruction__list}>{instructions.map((instruction) =>(
-            <li className={styles.instruction__item}>* {instruction}</li>
+          <div className={styles.instruction__list}>{instructions.map((instruction, index) =>(
+            <li className={styles.instruction__item} key={index}>* {instruction}</li>
             ))}
           </div>
 
