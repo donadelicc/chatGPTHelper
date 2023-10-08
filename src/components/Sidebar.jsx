@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "../styles/Sidebar.module.css"
 import {TbLayoutSidebar} from "react-icons/tb"
+import Link from 'next/link'
 // * Responsible for navigating to the default and custom instructions.
 // * If logged in, let the user navigate to the "New instructions" page.
 const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
@@ -32,7 +33,9 @@ const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
     <div className={styles.container}>
       {/* HEADER */}
       <div className={styles.header}>
+      <Link href="/createInstruction" legacyBehavior>
         <button className={styles.newInstruction__button}>Create new instruction</button>
+        </Link>
         <button className={`${styles.closeMenu__button} ${!isOpen ? styles.openMenu__button : ''}`} onClick={handleMenu}>
         <TbLayoutSidebar size={20}/>
         </button>

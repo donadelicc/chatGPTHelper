@@ -1,12 +1,18 @@
 
 /* Main container */
 .main {
-  flex: 3;
+  flex: 4;
+  margin: 0 auto;
   height: calc(100vh - 10vh);
   padding: 2rem 5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
+}
+.main > div {
+  width: 900px;
 }
 
 /* INTRODUCTION SECTION */
@@ -22,6 +28,7 @@
   background-color: #20212376;
   padding: .5rem 2rem;
   border-radius: .5rem;
+ 
 }
 .description{
   line-height: 35px;
@@ -31,7 +38,7 @@
   color: #88868d;
 }
 .createInstructionContainer {
-  width: 80%;
+  
   margin: 0px auto;
   display: flex;
   flex-direction: column;
