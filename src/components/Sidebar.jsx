@@ -4,14 +4,13 @@ import {TbLayoutSidebar} from "react-icons/tb"
 import Link from 'next/link'
 // * Responsible for navigating to the default and custom instructions.
 // * If logged in, let the user navigate to the "New instructions" page.
-const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
+const Sidebar = ({defaultInstructionsArray, customInstructionsArray, setCurrentInstruction}) => {
   
-  const [instructions, setInstructions] = useState(defaultInstructions)
+  const [defaultInstructions] = useState(defaultInstructionsArray)
+  const [customInstructions] = useState(customInstructionsArray)
+
   const [isOpen, setIsOpen] = useState(true)
 
-  // useEffect(() =>{
-  //   setInstructions(array)
-  // }, [])
 
   // TODO : Some how get the users custom instructions labels, 
   // TODO : Display the instruction labels below 
@@ -25,7 +24,6 @@ const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
   const handleMenu = () => {
     // set the state to the opposite
     setIsOpen(prev => !prev)
-    console.table(instructions)
   }
   if (isOpen){
   // SIDEBAR
@@ -47,7 +45,7 @@ const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
         <ul className={styles.instruction__list}>
 
           {/* Looping trough the array of default instructions  */}
-          {instructions.map((instruction, index) => (
+          {defaultInstructions.map((instruction, index) => (
             <li className={styles.instruction} key={index}>
               <button 
                 onClick={() => handleInstructionClick(instruction)}
@@ -65,12 +63,23 @@ const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
       <div className={styles.instructions__container}>
         <h3 className={styles.instruction__label}>my custom instructions</h3>
         <ul className={styles.instruction__list}>
-            {/* TODO: Dynamically get users custom instructions */}
-            <li className={styles.instruction}>CV creator</li>
-            <li className={styles.instruction}>Rhythmic help</li>
-            <li className={styles.instruction}>Formal Messages</li>
+
+          {/* Looping trough the array of default instructions  */}
+          {customInstructions.map((instruction, index) => (
+            <li className={styles.instruction} key={index}>
+              <button 
+                onClick={() => handleInstructionClick(instruction)}
+                className={styles.instructionButton}
+                >
+                {instruction.header}
+              </button>
+            </li>
+            ))}
+
         </ul>
       </div>
+
+   
     </div>
   )
   }

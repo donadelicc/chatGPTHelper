@@ -1,5 +1,5 @@
 .mainContainer {
-    height: 96vh;
+    height: 87vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,11 +71,14 @@
     transition: all 200ms ease;
   }
   .disabled{
+    background-color: #333548;
     opacity: .8;
     scale: .9;
   }
 
   .errorMessage{
+    margin: 0%;
+    padding: 0%;
     color: rgb(252, 75, 75);
     font-size: .85rem;
   }

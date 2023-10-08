@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '@/styles/CreateInstruction.module.css';
+import NavBar from '@/pages/navbar';
 
 const CreateInstruction = () => {
   const [instructionType, setInstructionType] = useState('');
@@ -9,24 +10,42 @@ const CreateInstruction = () => {
   const [nameMissingError, setNameMissingError] = useState('');
   const [emptyInstructionError, setEmptyInstructionError] = useState('');
 
+  const handleNameChange = (e) => {
+    setInstructionType(e.target.value);
+    setNameMissingError(''); // clear error message when typing
+  };
+
+  const handleInstructionsChange = (e) => {
+    setInstructionContent(e.target.value);
+    setEmptyInstructionError(''); // clear error message when typing
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setNameMissingError(''); // Reset any previous error messages
+  
+    setNameMissingError('');
     setEmptyInstructionError('');
-
+  
     if (instructionType === '') {
       setNameMissingError('You need to provide a name for your instruction');
     }
     if (instructionContent === '') {
       setEmptyInstructionError('You need to provide some instructions');
     }
-
+  
     if (instructionType !== '' && instructionContent !== '') {
-      // If both fields are not empty, perform your submit logic here
-      console.log(`Type: ${instructionType}, Content: ${instructionContent}`);
+      const sentenceArray = instructionContent.split("\n");
+
+      const instruction = {
+        header: instructionType,
+        instruction: sentenceArray,
+      };
+
+      console.table(instruction)
+      
     }
   };
+  
 
   useEffect(() => {
     if (instructionType !== '' && instructionContent !== '') {
@@ -41,7 +60,7 @@ const CreateInstruction = () => {
       <Head>
         <title>Create Instruction</title>
       </Head>
-
+    <NavBar />
       <div className={styles.mainContainer}>
         <div className={styles.main__content}>
           <div className={styles.headerContainer}>
@@ -63,7 +82,8 @@ const CreateInstruction = () => {
               <input
                 type="text"
                 className={styles.nameInput}
-                onChange={(e) => setInstructionType(e.target.value)}
+                onChange={handleNameChange}
+                value={instructionType}
               />
             </div>
 
@@ -78,9 +98,11 @@ const CreateInstruction = () => {
                 <label className={styles.formLabel}>instructions</label>
                 <p className={styles.errorMessage} >{emptyInstructionError}</p>
               </div>
+              
               <textarea
                 className={styles.textarea}
-                onChange={(e) => setInstructionContent(e.target.value)}
+                onChange={handleInstructionsChange}
+                value={instructionContent}
               ></textarea>
             </div>
 

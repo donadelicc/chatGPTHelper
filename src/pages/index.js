@@ -7,23 +7,20 @@ import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthCo
 import Main from '@/components/Main';
 import Sidebar from '../components/Sidebar';
 import Link from 'next/link';
-import { instructionContents } from '@/defaultInstructions';
-
+import { defaultInstructionsArray } from '@/defaultInstructions';
+import { customInstructionArray } from '@/customInstructions';
 
 export default function Home() {
-  const [instructions] = useState(instructionContents)
-  const [randomIndex] = useState(Math.floor(Math.random() * instructions.length))
-  
-  const [defaultInstruction] = useState(instructions[3])
+  // default instructions
+  const [defaultInstructions] = useState(defaultInstructionsArray)
+  const [defaultInstruction] = useState(defaultInstructions[0])
+
+  // ? use the setter for both?
   const [currentInstruction, setCurrentInstruction] = useState(defaultInstruction)
-
-  // const [activeDropdown, setActiveDropdown] = useState(null);
-  //const { authUser } = useAuth();
-
- 
-
-
   
+
+  // custom instructions
+  const [customInstructions, setCustomInstructions] = useState(customInstructionArray)
 
   
 
@@ -33,11 +30,17 @@ export default function Home() {
         <title>ChatGPT Assistant</title>
       </Head>
 
-      {/* <NavBar /> */}
+      <NavBar />
       <div style={{display:"flex"}}>
-        <Sidebar defaultInstructions={instructions} setCurrentInstruction={setCurrentInstruction}/>
+        <Sidebar 
+          defaultInstructionsArray={defaultInstructions} 
+          customInstructionsArray={customInstructions} 
+          setCurrentInstruction={setCurrentInstruction}
+        />
         
-        <Main currentInstruction={currentInstruction}/>
+        <Main 
+          currentInstruction={currentInstruction}
+        />
       </div>
 
       
