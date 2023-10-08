@@ -1,12 +1,19 @@
 import React, {useState} from 'react'
 import styles from "../styles/Home.module.css"
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
-
-const Main = () => {
+import Link from 'next/link'
+const Main = ({currentInstruction}) => {
 
     const { authUser } = useAuth();
     const [activeDropdown, setActiveDropdown] = useState(null);
 
+    let header = ""
+    let instructions = ""
+
+    if(currentInstruction){
+      header = currentInstruction.header
+      instructions = currentInstruction.instruction
+    }
 
     const handleDropdownClick = (id) => {
         if (activeDropdown === id) {
@@ -125,13 +132,27 @@ const Main = () => {
     
   return (
     <main className={styles.main}>
-       
-        <h1 className={styles.title}>
-        Tailored ChatGPT Instructions
-        </h1>
-        <p className={styles.description}>
-        This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Simply click on the dropdowns below to view different sets of instructions. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
-        </p>
+       <div className={styles.introduction}>
+          <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
+          <div className={styles.introductionContainer}>
+            <p className={styles.description}>
+              This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Simply click on the dropdowns below to view different sets of instructions. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
+            </p>
+          </div>
+          {authUser ? (
+            <>
+            
+            </>
+          ):(
+            <>
+            <p>Please remember to 
+              <span > <a href="/logIn">log in</a> </span> 
+              to fully enjoy the benefits. Once logged in, you'll have the option to create custom instructions.
+            </p>
+            </>
+          )}
+        </div>
+
         
       {authUser ? (
         <>
@@ -145,23 +166,15 @@ const Main = () => {
 
 
       ) : (
-        <p>
-          Please log in to create your own instructions
-        </p>
+       <div>
+        <p>Please log in to create your own instructions</p>
+       </div>
       )}
-        <div className={styles.dropdownContainer}>
-          <p className={styles.intructionDescription}>Good 2 go ChatGPT instructions</p>
-        {dropdownContents.map((item, index) => (
-          <div key={index}>
-            <button className={styles.dropdown} onClick={() => handleDropdownClick(index)}>{item.header}</button>
-            {activeDropdown === index && (
-              <div className={styles.dropdownContent}>
-                <span className={styles.closeButton} onClick={handleCloseClick}>X</span>
-                {item.content.split('*').map((line, i) => line.trim() && <div key={i} className={styles.greenText}>- {line.trim()}</div>)}
-              </div>
-            )}
-          </div>
-        ))}
+      <div>
+        <h3>{header}</h3>
+        <div>
+
+        </div>
       </div>
 
     

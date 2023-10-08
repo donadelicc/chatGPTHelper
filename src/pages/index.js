@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '@/styles/Home.module.css';
 import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
@@ -7,13 +7,19 @@ import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthCo
 import Main from '@/components/Main';
 import Sidebar from '../components/Sidebar';
 import Link from 'next/link';
+import { instructionContents } from '@/defaultInstructions';
 
 
 export default function Home() {
+  const [instructions] = useState(instructionContents)
+  const [currentInstruction, setCurrentInstruction] = useState()
+
   // const [activeDropdown, setActiveDropdown] = useState(null);
   //const { authUser } = useAuth();
 
-
+  useEffect(() => {
+    console.log(currentInstruction)
+  }, [currentInstruction])
   
 
   
@@ -25,8 +31,9 @@ export default function Home() {
       </Head>
         <NavBar />
       <div style={{display:"flex"}}>
-        <Sidebar />
-        <Main />
+        <Sidebar defaultInstructions={instructions} setCurrentInstruction={setCurrentInstruction}/>
+        
+        <Main currentInstruction={currentInstruction}/>
       </div>
 
       

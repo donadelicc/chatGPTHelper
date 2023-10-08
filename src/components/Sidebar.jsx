@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from "../styles/Sidebar.module.css"
-import { instructionContents } from '@/defaultInstructions'
-
+import {TbLayoutSidebar} from "react-icons/tb"
 // * Responsible for navigating to the default and custom instructions.
 // * If logged in, let the user navigate to the "New instructions" page.
-const Sidebar = () => {
+const Sidebar = ({defaultInstructions, setCurrentInstruction}) => {
   
-  const [instructions, setInstructions] = useState(instructionContents)
+  const [instructions, setInstructions] = useState(defaultInstructions)
   const [isOpen, setIsOpen] = useState(false)
 
   // useEffect(() =>{
@@ -15,6 +14,11 @@ const Sidebar = () => {
 
   // TODO : Some how get the users custom instructions labels, 
   // TODO : Display the instruction labels below 
+
+  const handleInstructionClick = (instruction) => {
+    // passing the current clicked instruction to the state in root file (index.js)
+    setCurrentInstruction(instruction)
+  }
 
   // FUNCTION FOR TOGGLING THE MENU STATE
   const handleMenu = () => {
@@ -29,7 +33,9 @@ const Sidebar = () => {
       {/* HEADER */}
       <div className={styles.header}>
         <button className={styles.newInstruction__button}>Create new instruction</button>
-        <button className={styles.closeMenu__button} onClick={handleMenu}>close</button>
+        <button className={`${styles.closeMenu__button} ${!isOpen ? styles.openMenu__button : ''}`} onClick={handleMenu}>
+        <TbLayoutSidebar size={20}/>
+        </button>
       </div>
 
       {/* DEFAULT INSTRUCTIONS */}
@@ -40,9 +46,12 @@ const Sidebar = () => {
           {/* Looping trough the array of default instructions  */}
           {instructions.map((instruction, index) => (
             <li className={styles.instruction} key={index}>
-              <a href="#" style={{textDecoration:"none", color :"inherit"}}>
+              <button 
+                onClick={() => handleInstructionClick(instruction)}
+                className={styles.instructionButton}
+                >
                 {instruction.header}
-              </a>
+              </button>
             </li>
             ))}
 
@@ -65,8 +74,8 @@ const Sidebar = () => {
   else{
     return(
       // CLOSE BUTTON
-      <div style={{marginTop: 20, marginLeft: 30}}>
-        <button className={styles.closeMenu__button} onClick={handleMenu}>open</button> 
+      <div style={{marginTop: 20, marginLeft: 10}}>
+        <button className={styles.openMenu__button} onClick={handleMenu}><TbLayoutSidebar size={20}/></button> 
       </div>
     )
   }

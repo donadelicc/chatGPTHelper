@@ -2,31 +2,31 @@
 /* Main container */
 .main {
   flex: 3;
+  height: calc(100vh - 10vh);
+  padding: 2rem 5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
+  gap: 2rem;
+}
+
+/* INTRODUCTION SECTION */
+.introduction{
+  color: #e1e1e1;
 }
 
 /* Title and description */
 .title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 40px;
+  color: white;
+}
+.introductionContainer{
+  background-color: #20212376;
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+}
+.description{
+  line-height: 35px;
 }
 
-.description {
-  background-color: rgba(76, 175, 80, 0.1); /* Lys grønn bakgrunn */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: auto;
-  margin-bottom: 20px;
-}
 
 .customIntructionTxt {
   font-size: 20px;
@@ -34,25 +34,31 @@
 }
 
 .createInstructionContainer {
-  width: 100%;
+  width: 80%;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
-  border-bottom: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
-  border-top: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
+  padding: 30px;
+  border-bottom: 2px solid #868686;
+  border-top: 2px solid #868686; 
 }
 
 .createInstructionButton {
-    background-color: #4CAF50;
-    color: black;
-    padding: 10px;
-    border: none;
+    background-color: inherit;
+    color: #4CAF50;
+    padding: 1rem 2rem;
+    border: 2px solid #4CAF50;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
     margin-bottom: 15px;
-    font-size: 25px;
+    font-size: 20px;
+    transition: all 200ms;
+}
+.createInstructionButton:hover{
+  background-color: #4CAF50;
+  color: white;
 }
 
 
