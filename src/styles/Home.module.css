@@ -47,6 +47,17 @@
   border-bottom: 2px solid var(--text-color);
   border-top: 2px solid var(--text-color); 
 }
+.loginShortcut{
+  cursor: pointer;
+  border-radius: .3rem;
+  color: rgb(255, 255, 255);
+  transition: all 200ms ease-in-out;
+  text-transform: uppercase;
+}
+.loginShortcut:hover{
+  color: green;
+}
+
 
 .createInstructionButton {
     background-color: inherit;
