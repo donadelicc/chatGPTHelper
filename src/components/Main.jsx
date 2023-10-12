@@ -65,7 +65,7 @@ const Main = ({currentInstruction}) => {
               <span>
                 <Link href="/logIn" className={styles.loginShortcut}> log in </Link> 
               </span>
-              to fully enjoy the benefits. Once logged in, you'll have the option to create custom instructions.
+              to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create custom instructions.
             </p>
        </div>
       )}
