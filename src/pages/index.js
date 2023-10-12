@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css';
 import NavBar from './navbar'; // Angi riktig sti til NavBar-komponenten
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 import Link from 'next/link';
-import { Analytics } from '@vercel/analytics/react';
+//import { Analytics } from '@vercel/analytics/react';
 
 
 export default function Home() {
@@ -196,7 +196,7 @@ export default function Home() {
         ))}
       </div>
       </main>
-      <Analytics />
+      {`<Analytics />`}
 
     </>
   );
