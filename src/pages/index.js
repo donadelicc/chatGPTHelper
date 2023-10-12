@@ -10,7 +10,6 @@ export default function Home() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { authUser } = useAuth();
 
-
   const dropdownContents = [
       {
         header: 'Genereal instruction',
