@@ -37,7 +37,6 @@ export default function Home() {
           customInstructionsArray={customInstructions} 
           setCurrentInstruction={setCurrentInstruction}
         />
-        
         <Main 
           currentInstruction={currentInstruction}
         />

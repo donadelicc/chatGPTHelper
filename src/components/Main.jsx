@@ -48,7 +48,6 @@ const Main = ({currentInstruction}) => {
           </div>
         </div>
 
-        
       {authUser ? (
         <>
         <div className={styles.createInstructionContainer}>
@@ -64,7 +63,7 @@ const Main = ({currentInstruction}) => {
        <div>
          <p>Please remember to 
               <span>
-              <a href="/logIn" className={styles.loginShortcut}> log in </a> 
+                <Link href="/logIn" className={styles.loginShortcut}> log in </Link> 
               </span>
               to fully enjoy the benefits. Once logged in, you'll have the option to create custom instructions.
             </p>
