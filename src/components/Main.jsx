@@ -58,7 +58,6 @@ const Main = ({currentInstruction}) => {
       </div>
       </>
 
-
       ) : (
        <div>
          <p>Please remember to 

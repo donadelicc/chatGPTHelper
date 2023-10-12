@@ -12,12 +12,12 @@ const CreateInstruction = () => {
 
   const handleNameChange = (e) => {
     setInstructionType(e.target.value);
-    setNameMissingError(''); // clear error message when typing
+    setNameMissingError(''); 
   };
 
   const handleInstructionsChange = (e) => {
     setInstructionContent(e.target.value);
-    setEmptyInstructionError(''); // clear error message when typing
+    setEmptyInstructionError('');
   };
 
   const handleSubmit = (e) => {
