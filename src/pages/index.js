@@ -30,7 +30,7 @@ export default function Home() {
         <title>ChatGPT Assistant</title>
       </Head>
 
-      <NavBar />
+      {/* <NavBar /> */}
       <div style={{display:"flex"}}>
         <Sidebar 
           defaultInstructionsArray={defaultInstructions} 

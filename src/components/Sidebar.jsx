@@ -10,8 +10,6 @@ const Sidebar = ({defaultInstructionsArray, customInstructionsArray, setCurrentI
   const [customInstructions] = useState(customInstructionsArray)
 
   const [isOpen, setIsOpen] = useState(true)
-
-
   // TODO : Some how get the users custom instructions labels, 
   // TODO : Display the instruction labels below 
 

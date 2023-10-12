@@ -60,7 +60,7 @@ const CreateInstruction = () => {
       <Head>
         <title>Create Instruction</title>
       </Head>
-    <NavBar />
+    {/* <NavBar /> */}
       <div className={styles.mainContainer}>
         <div className={styles.main__content}>
           <div className={styles.headerContainer}>
