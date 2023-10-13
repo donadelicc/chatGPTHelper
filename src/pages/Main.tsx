@@ -1,19 +1,31 @@
-import React, {useState} from 'react'
+import React, {FunctionComponent, useState} from 'react'
 import styles from "../styles/Home.module.css"
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 import Link from 'next/link'
+// Copy to clipboard library from react
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+// custom color schema
+import { bgColor } from '../styles/colors';
+// Icons
 import {FaClipboardList} from "react-icons/fa"
 import {BsCheck2All} from "react-icons/bs"
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { bgColor } from '../styles/colors';
+import {LiaSearchSolid} from "react-icons/lia"
+import {AiOutlinePlus} from "react-icons/ai"
+// components
 import CustomButton from '../components/CustomButton';
 
-const Main = ({currentInstruction}) => {
+interface MainProps{
+  currentInstruction: Array<{
+    header: string;
+    instruction: string[]
+  }>
+}
+
+const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
 
     const { authUser } = useAuth();
     const [activeDropdown, setActiveDropdown] = useState(null);
     const[copied, setCopied] = useState(false)
-
 
     let header = ""
     let instructions = []
@@ -23,14 +35,14 @@ const Main = ({currentInstruction}) => {
       instructions = currentInstruction.instruction
     }
 
- 
-
-    
   return (
     <main className={styles.main}>
 
        <div className={styles.introduction}>
+        <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
           <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
+          <CustomButton label='brows' color={bgColor.red} Icon={<LiaSearchSolid />}/>
+        </div>
           <div className={styles.introductionContainer}>
             <p className={styles.description}>
               This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Navigate through different sets of instructions in the menu. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
@@ -42,7 +54,7 @@ const Main = ({currentInstruction}) => {
         <>
         <div className={styles.createInstructionContainer}>
           <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction'/>
+          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction' Icon={<AiOutlinePlus />}/>
       </div>
       </>
 

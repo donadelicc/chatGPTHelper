@@ -1,4 +1,4 @@
-import {BsCodeSquare} from "react-icons/bs"
+import {BsPlus} from "react-icons/bs"
 import React, { Dispatch, FunctionComponent, SetStateAction, useState } from 'react'
 import styles from "../styles/sidebar/Sidebar.module.css"
 import {TbLayoutSidebar} from "react-icons/tb"
@@ -62,7 +62,10 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
         {/* HEADER */}
         <div className={styles.header}>
           <Link href="/createInstruction" legacyBehavior>
-            <button className={styles.newInstruction__button}>Create new instruction</button>
+            <button className={styles.newInstruction__button}> 
+              <BsPlus size={20}/>
+              New Instruction
+            </button>
           </Link>
           <button className={`${styles.closeMenu__button} ${!isOpen ? styles.openMenu__button : ''}`} onClick={handleMenu}>
             <TbLayoutSidebar size={20}/>
