@@ -5,7 +5,7 @@ import Link from 'next/link'
 // Copy to clipboard library from react
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 // custom color schema
-import { bgColor } from '../styles/colors';
+import { bgColor, linearGradients } from '../styles/colors';
 // Icons
 import {FaClipboardList} from "react-icons/fa"
 import {BsCheck2All} from "react-icons/bs"
@@ -15,11 +15,15 @@ import {AiOutlinePlus} from "react-icons/ai"
 import CustomButton from '../components/CustomButton';
 
 interface MainProps{
-  currentInstruction: Array<{
+  header: string;
+  instruction: string[];
+
+  currentInstruction: {
     header: string;
-    instruction: string[]
-  }>
+    instruction: string[];
+  };
 }
+
 
 const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
 
@@ -28,7 +32,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
     const[copied, setCopied] = useState(false)
 
     let header = ""
-    let instructions = []
+    let instructions: any[] = []
 
     if(currentInstruction){
       header = currentInstruction.header
@@ -41,7 +45,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
        <div className={styles.introduction}>
         <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
           <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
-          <CustomButton label='brows' color={bgColor.red} Icon={<LiaSearchSolid />}/>
+          <CustomButton label='brows' color={bgColor.red} Icon={<LiaSearchSolid />} gradient={linearGradients.greenLinearGradient}/>
         </div>
           <div className={styles.introductionContainer}>
             <p className={styles.description}>
@@ -54,7 +58,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
         <>
         <div className={styles.createInstructionContainer}>
           <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction' Icon={<AiOutlinePlus />}/>
+          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction' Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
       </div>
       </>
 

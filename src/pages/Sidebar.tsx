@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase'; // Importer fra din firebase.js fil
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
-import {bgColor} from '../styles/colors'
+import {bgColor, linearGradients} from '../styles/colors'
 
 import CustomButton from "../components/CustomButton"
 import Instructions from "../components/sidebar/Instructions"
@@ -80,11 +80,11 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
       {/* Footer */}
       <div className={styles.footer}>
         {authUser ? (
-          <CustomButton label="Log out" color={bgColor.red} onClick={handleSignOut}/>
+          <CustomButton label="Log out" gradient={linearGradients.redLinearGradient} onClick={handleSignOut}/>
           ) : (
           <div style={{display:"flex", flexDirection:"column", gap:"1rem"}}>            
-            <CustomButton label="Log in" color={bgColor.green} path="/logIn"/>
-            <CustomButton label="sign up" color={bgColor.blue} path="signUp"/>
+            <CustomButton label="Log in" gradient={linearGradients.greenLinearGradient} path="/logIn"/>
+            <CustomButton label="sign up" gradient={linearGradients.blueLinearGradient} path="signUp"/>
           </div>
 
         )}
