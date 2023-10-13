@@ -5,7 +5,8 @@ import Link from 'next/link'
 import {FaClipboardList} from "react-icons/fa"
 import {BsCheck2All} from "react-icons/bs"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {AiOutlineArrowRight} from "react-icons/ai"
+import { bgColor } from '../styles/colors';
+import CustomButton from '../components/CustomButton';
 
 const Main = ({currentInstruction}) => {
 
@@ -22,23 +23,12 @@ const Main = ({currentInstruction}) => {
       instructions = currentInstruction.instruction
     }
 
-    const handleDropdownClick = (id) => {
-        if (activeDropdown === id) {
-          setActiveDropdown(null);
-        } else {
-          setActiveDropdown(id);
-        }
-      };
-    
-      const handleCloseClick = () => {
-        setActiveDropdown(null);
-      };
-
-
+ 
 
     
   return (
     <main className={styles.main}>
+
        <div className={styles.introduction}>
           <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
           <div className={styles.introductionContainer}>
@@ -52,22 +42,21 @@ const Main = ({currentInstruction}) => {
         <>
         <div className={styles.createInstructionContainer}>
           <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <Link href="/createInstruction" legacyBehavior>
-            <button className={styles.createInstructionButton}>Create Instruction</button>
-        </Link>
+          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction'/>
       </div>
       </>
 
       ) : (
-       <div>
+       <div className={styles.notLoggedInSection}>
          <p>Please remember to 
               <span>
-                <Link href="/logIn" className={styles.loginShortcut}> log in </Link> 
+                <Link href="/logIn" className={styles.loginShortcut} style={{color: bgColor.green}}>log in</Link> 
               </span>
               to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create custom instructions.
             </p>
        </div>
       )}
+
       <div className={styles.instruction__container}>
         <div className={styles.instruction__header}>
         <h3 className={styles.instruction_title}>{header}</h3>
@@ -96,10 +85,9 @@ const Main = ({currentInstruction}) => {
           </div>
 
         </div>
-      
-
-    
       </main>
+
+  
   )
 }
 

@@ -1,35 +1,32 @@
 
 /** Main container **/
 .main {
-  flex: 4;
+  width: 100vw;
   margin: 0 auto;
-  height: calc(100vh -10vh);
+  height: 97vh;
   padding: 1rem 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
   gap: 2rem;
-  max-width: 900px;
+  overflow: scroll;
 }
 
 /** INTRODUCTION SECTION **/
 .introduction{
   color: var(--text-color);
+  max-width: var(--max-width);
+  margin: 2rem auto;
 }
 .title {
   font-size: var(--big-title);
   color: var(--text-color);
 }
 .introductionContainer{
-  background-color: var(--container-color);
+  background-color: var(--dark-gray-color);
   box-shadow: var(--inner-shadow);
-  /* max-height: 200px;
-  overflow: auto; */
   padding: .5rem 2rem;
   border-radius: .5rem;
 }
 .description{
-  /* max-height: 230px; */
   line-height: 35px;
 }
 
@@ -38,28 +35,27 @@
 /** CREATE INSTRUCTION SECTION **/
 .createInstructionContainer {
   padding: 2rem 0rem;
-  width: 100%;
+  max-width: var(--max-width);
   display: flex;
   align-items: center;
   flex-direction: column;
   border-bottom: 2px solid var(--line-color);
   border-top: 2px solid var(--line-color); 
+  margin: 2rem auto;  
 }
 .customInstructionTxt {
   font-size: 1rem;
   color: var(--text-color);
 }
 .loginShortcut{
+  padding: .3rem;
   cursor: pointer;
-  border-radius: .3rem;
-  color: rgb(255, 255, 255);
   transition: all 200ms ease-in-out;
-  text-transform: uppercase;
+  opacity: .6;
 }
 .loginShortcut:hover{
-  color: green;
+  opacity: 1;
 }
-
 
 /** BUTTON **/
 .createInstructionButton {
@@ -74,15 +70,22 @@
 }
 .createInstructionButton:hover{
   scale: 1;
-  
+}
+
+/**  NOT LOGGED IN SECTION  **/
+.notLoggedInSection{
+  margin: 2rem auto;
+  max-width: var(--max-width);
 }
 
 /** INSTRUCTION SECTION **/
 .instruction__container{
+  margin: 2rem auto;
+  max-width: var(--max-width);
   border-radius: .5rem;
-  background-color: var(--mid-gray-color);
+  background-color: var(--container-color);
   overflow: hidden;
-  width: 100%;
+  
 }
 .instruction__header{
   display: flex;
@@ -109,7 +112,7 @@
 
 .instruction__list{
   box-shadow: var(--inner-shadow);
-  background-color: var(--container-color);
+  background-color: var(--dark-gray-color);
   padding: 1rem;
   list-style: none;
   display: flex;

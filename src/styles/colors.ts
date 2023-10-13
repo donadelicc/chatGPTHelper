@@ -1,9 +1,6 @@
-export const logInColor = {
-    color: "#74c991"
+export const bgColor = {
+    green: "#33cd32",
+    blue: "#5191c4",
+    red: "#ff5252"
 }
-export const signUpColor = {
-    color: "#5191c4"
-}
-export const logOutColor = {
-    color: "#ff5252"
-}
+

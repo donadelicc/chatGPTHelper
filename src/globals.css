@@ -10,16 +10,20 @@
   --container-color: rgba(32, 33, 35, 0.5);
   --text-color: rgb(192, 192, 192);
   --green-color: #4CAF50;
-  --line-color: #383a45;
+  --line-color: #34353a;
   --opacity: 0.5;
   /* * FONT SIZES * */
   --big-title: 2rem;
   --title-size: 1.5rem;
   --text-size: 1rem;
-  --inner-shadow: inset 0px 0px 20px 2px rgba(0, 0, 0, 0.388);
+  --inner-shadow: inset 0px 0px 20px 2px rgba(0, 0, 0, 0.291);
+
+  /** WIDTH **/
+  --max-width: 1000px;
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   background-color: var(--light-gray-color);

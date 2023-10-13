@@ -2,6 +2,26 @@
 
 export const defaultInstructionsArray = [
   {
+    header: "Effective Communication Skills",
+    instruction: [
+      "Address different forms of communication, including written, verbal, and non-verbal",
+      "Provide tips for active listening, empathy, and conflict resolution",
+      "Offer strategies for effective public speaking and presentations",
+      "Emphasize the importance of clear and concise written communication",
+      "Highlight the significance of body language in non-verbal communication",
+      "Include examples of active listening techniques, such as paraphrasing and summarizing",
+      "Explain the benefits of using 'I' statements for constructive dialogue",
+      "Address different forms of communication, including written, verbal, and non-verbal",
+      "Provide tips for active listening, empathy, and conflict resolution",
+      "Offer strategies for effective public speaking and presentations",
+      "Emphasize the importance of clear and concise written communication",
+      "Highlight the significance of body language in non-verbal communication",
+      "Include examples of active listening techniques, such as paraphrasing and summarizing",
+      "Explain the benefits of using 'I' statements for constructive dialogue",
+    ]
+  },
+  
+  {
       header: "General instructions", 
       instruction: [
         "Write well",

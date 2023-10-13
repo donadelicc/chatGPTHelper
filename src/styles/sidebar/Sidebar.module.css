@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
   
 /* HEADER */
@@ -42,66 +43,12 @@
     background-color:#202123;
 }
 
-/* INSTRUCTIONS SECTION*/
-.instructions__container{
-    margin-top: 2rem;
-}
 
-/* INSTRUCTION BUTTONS */
-.instructionButton{
-    border: none;
-    width: 100%;
-    text-align: left;
-    padding: .8rem .3rem .8rem;
-    border-radius: .3rem;
-    background-color: inherit;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-
-}
-.instructionButton:hover{
-    background-color: #343541;
-}
-
-.instruction__label{
-    font-size: .8rem;
-    color: #8E8E9F;
-    text-transform: capitalize;
-}
-.instruction__list{
-    margin: 0%;
-    padding: 0%;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
-}
-.instruction{
-    font-weight: bold;
-}
 
 /** FOOTER **/
 .footer{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
 }
-.footer * button {
-    scale: .95;
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: .3rem;
-    background:rgb(254, 81, 81);
-    color: white;
-    font-size: var(--text-size);
-    transition: all 100ms ease;
-}
-.footer * button:hover{
-    scale: 1;
-}
+
 
 
 @media (max-width: 768px) {

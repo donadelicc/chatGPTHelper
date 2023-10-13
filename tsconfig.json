@@ -109,7 +109,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/pages/Main.jsx"  ],
   "exclude": [
     "node_modules"
   ]
