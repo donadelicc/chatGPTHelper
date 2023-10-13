@@ -1,51 +1,53 @@
 
-/* Main container */
+/** Main container **/
 .main {
   flex: 4;
   margin: 0 auto;
-  height: calc(100vh - 10vh);
-  padding: 2rem 5rem;
+  height: calc(100vh -10vh);
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 2rem;
-}
-.main > div {
-  width: 900px;
+  max-width: 900px;
 }
 
-/* INTRODUCTION SECTION */
+/** INTRODUCTION SECTION **/
 .introduction{
   color: var(--text-color);
 }
-
-/* Title and description */
 .title {
   font-size: var(--big-title);
   color: var(--text-color);
 }
 .introductionContainer{
   background-color: var(--container-color);
+  box-shadow: var(--inner-shadow);
+  /* max-height: 200px;
+  overflow: auto; */
   padding: .5rem 2rem;
   border-radius: .5rem;
- 
 }
 .description{
+  /* max-height: 230px; */
   line-height: 35px;
+}
+
+
+
+/** CREATE INSTRUCTION SECTION **/
+.createInstructionContainer {
+  padding: 2rem 0rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 2px solid var(--line-color);
+  border-top: 2px solid var(--line-color); 
 }
 .customInstructionTxt {
   font-size: 1rem;
   color: var(--text-color);
-}
-.createInstructionContainer {
-  margin: 0px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  border-bottom: 2px solid var(--text-color);
-  border-top: 2px solid var(--text-color); 
 }
 .loginShortcut{
   cursor: pointer;
@@ -59,54 +61,107 @@
 }
 
 
+/** BUTTON **/
 .createInstructionButton {
-    background-color: inherit;
-    color: var(--green-color);
-    padding: 1rem 2rem;
-    border: 2px solid var(--green-color);
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    transition: all 200ms;
-}
-.createInstructionButton:hover{
+  font-size: 1.25rem;
+  padding: .7rem 1.2rem;
+  border: none;
   background-color: var(--green-color);
   color: white;
+  border-radius: .6rem;
+  transition: all 200ms;
+  scale: .97;
+}
+.createInstructionButton:hover{
+  scale: 1;
+  
 }
 
-/* INSTRUCTION SECTION */
+/** INSTRUCTION SECTION **/
 .instruction__container{
   border-radius: .5rem;
   background-color: var(--mid-gray-color);
   overflow: hidden;
-  height: fit-content;
+  width: 100%;
 }
-
 .instruction__header{
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0rem 1rem;
 }
+
+.copyToClipboard__button{
+  color: var(--text-color);
+  cursor: pointer;
+}
+.copyToClipboard__text{
+  font-size: .8rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
 .instruction_title{
+  padding: .5rem 0rem;
+  margin: 0;
+  font-size: 1.25rem;
   font-weight: 400;
 }
-.instruction__content{
-  padding: 2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  height: fit-content;
-}
+
 .instruction__list{
+  box-shadow: var(--inner-shadow);
   background-color: var(--container-color);
-  height: fit-content;
-  padding: 2rem 1rem;
+  padding: 1rem;
   list-style: none;
   display: flex;
   flex-direction: column;
+  line-height: 35px;
 }
 .instruction__item{
+ 
+}
 
+@media (max-width: 768px) {
+  /** INTRO **/
+  .introductionContainer{
+    padding: .2rem 1rem;
+  }
+  .title{
+    font-size: 1.25rem;
+  }
+  .description {
+    line-height: 25px;
+    font-size: .8rem;
+  }
+  /** CREATE INSTRUCTION **/
+  .customInstructionTxt{
+    text-align: center;
+    font-size: .8rem;
+  }
+  .createInstructionButton{
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    border: none;
+    background-color: var(--green-color);
+    color: white;
+    border-radius: 20px;
+    font-weight: 200;
+  }
+  .copyToClipboard__text{
+    display: none;
+  }
+
+  /** INSTRUCTION SECTION **/
+  .instruction_title{
+    font-size: .9rem;
+  }
+  .instruction__list{
+    line-height: 25px;
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title{
+    font-size: .9rem;
+  }
 }

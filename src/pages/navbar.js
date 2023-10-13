@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase'; // Importer fra din firebase.js fil
-import styles from '@/styles/Navbar.module.css';
+import styles from '../styles/Navbar.module.css';
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
 import { Image } from "next/image"
 

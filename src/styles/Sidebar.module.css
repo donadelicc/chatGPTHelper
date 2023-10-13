@@ -1,10 +1,15 @@
 
 .container{
     flex: 1;
-    height: 100vh;
+    height: calc(100vh - 3.4vh);
     background-color: var(--dark-gray-color);
     font-family: sans-serif;
     padding: 1rem;
+    max-width: 270px;
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
   
 /* HEADER */
@@ -24,8 +29,8 @@
 }
 .openMenu__button{
     position: absolute;
-    top: 10%;
-    left: 2.7%;
+    top: 4.5%;
+    left: 1%;
     background-color: inherit;
     border: none;
     border-radius: .3rem;
@@ -75,3 +80,45 @@
 .instruction{
     font-weight: bold;
 }
+
+/** FOOTER **/
+.footer{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.footer * button {
+    scale: .95;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    background:rgb(254, 81, 81);
+    color: white;
+    font-size: var(--text-size);
+    transition: all 100ms ease;
+}
+.footer * button:hover{
+    scale: 1;
+}
+
+
+@media (max-width: 768px) {
+
+}
+  
+
+@media (max-width: 480px) {
+
+
+}
+
+
+
+@media (max-width: 600px) {
+    .container{
+        position: absolute;
+        z-index: 10;
+    }
+  }

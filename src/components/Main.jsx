@@ -70,12 +70,13 @@ const Main = ({currentInstruction}) => {
       )}
       <div className={styles.instruction__container}>
         <div className={styles.instruction__header}>
-        <h3 className={styles.instruction_title}>{header} :</h3>
+        <h3 className={styles.instruction_title}>{header}</h3>
           {/* Library lets us copy the text */}
           <CopyToClipboard 
             text={instructions}
-            style={{ backgroundColor:"inherit", border:"none", color:"white", cursor:"pointer", display:"flex", alignItems:"center", gap:"5px"}}>
-            <div onClick={() => setCopied(true)}>
+            className={styles.copyToClipboard__button}
+          >
+            <div onClick={() => setCopied(true)} style={{display: "flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
             { copied ? (
                 <>
                 <BsCheck2All size={20}/>
@@ -85,12 +86,12 @@ const Main = ({currentInstruction}) => {
                 <FaClipboardList size={20}/>
               </>
             )}
-            <span style={{fontSize:"1rem"}}>{copied ? "copied!" : "copy"}</span>
+            <span className={styles.copyToClipboard__text}>{copied ? "copied!" : "copy instruction"}</span>
             </div>
           </CopyToClipboard>
         </div>
           <div className={styles.instruction__list}>{instructions.map((instruction, index) =>(
-            <li className={styles.instruction__item} key={index}>* {instruction}</li>
+            <li className={styles.instruction__item} key={index}>- {instruction}</li>
             ))}
           </div>
 
