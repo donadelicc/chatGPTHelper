@@ -69,8 +69,8 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
           </button>
         </div>
         {/* custom component containing list of instructions */}
-        <Instructions instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction}/>
-        <Instructions instructions={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
+        <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction}/>
+        <Instructions title="my custom instructions"instructions={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
 
       </div>
 

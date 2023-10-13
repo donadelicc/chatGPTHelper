@@ -7,7 +7,7 @@ interface InstructionProps {
     header: string;
     instruction: string[]
   }>
-
+  title: string
   setCurrentInstruction?: Dispatch<SetStateAction<{
     header: string;
     instruction: string[];
@@ -15,7 +15,7 @@ interface InstructionProps {
 }
 
 
-const Instructions: FunctionComponent<InstructionProps> = ({instructions, setCurrentInstruction}) => {
+const Instructions: FunctionComponent<InstructionProps> = ({instructions, setCurrentInstruction, title}) => {
 
   const handleInstructionClick = (instruction: {header: string, instruction: string[]}) => {
     // passing the current clicked instruction to the state in root file (index.js)
@@ -27,7 +27,7 @@ const Instructions: FunctionComponent<InstructionProps> = ({instructions, setCur
 
   return (
     <div className={styles.instructions__container}>
-      <h3 className={styles.instruction__label}>default instructions</h3>
+      <h3 className={styles.instruction__label}>{title}</h3>
 
       <ul className={styles.instruction__list}>
        {/* Looping trough the array of default instructions  */}
