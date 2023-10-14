@@ -1,106 +1,166 @@
 
-/* Main container */
+/** Main container **/
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
+  width: 100vw;
+  margin: 0 auto;
+  height: 97vh;
+  padding: 1rem 3rem;
+  margin: 0 auto;
+  gap: 2rem;
+  overflow: scroll;
 }
 
-/* Title and description */
+/** INTRODUCTION SECTION **/
+.introduction{
+  color: var(--text-color);
+  max-width: var(--max-width);
+  margin: 2rem auto;
+}
 .title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 40px;
+  font-size: var(--big-title);
+  color: var(--text-color);
+}
+.introductionContainer{
+  background-color: var(--dark-gray-color);
+  box-shadow: var(--inner-shadow);
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+}
+.description{
+  line-height: 35px;
 }
 
-.description {
-  background-color: rgba(76, 175, 80, 0.1); /* Lys grønn bakgrunn */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  line-height: 1.6;
-  text-align: left;
-  max-width: 800px;
-  margin: auto;
-  margin-bottom: 20px;
-}
 
-.customIntructionTxt {
-  font-size: 20px;
-  color: #4CAF50;
-}
 
+/** CREATE INSTRUCTION SECTION **/
 .createInstructionContainer {
-  width: 100%;
+  padding: 2rem 0rem;
+  max-width: var(--max-width);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
-  border-bottom: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
-  border-top: 2px solid #4CAF50; /* 2px tykk, solid linje med fargen #4CAF50 (grønn) */
+  flex-direction: column;
+  border-bottom: 2px solid var(--line-color);
+  border-top: 2px solid var(--line-color); 
+  margin: 2rem auto;  
+}
+.customInstructionTxt {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+.loginShortcut{
+  padding: .3rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  opacity: .6;
+}
+.loginShortcut:hover{
+  opacity: 1;
 }
 
+/** BUTTON **/
 .createInstructionButton {
-    background-color: #4CAF50;
-    color: black;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    font-size: 25px;
+  font-size: 1.25rem;
+  padding: .7rem 1.2rem;
+  border: none;
+  background-color: var(--green-color);
+  color: white;
+  border-radius: .6rem;
+  transition: all 200ms;
+  scale: .97;
+}
+.createInstructionButton:hover{
+  scale: 1;
 }
 
+/**  NOT LOGGED IN SECTION  **/
+.notLoggedInSection{
+  margin: 2rem auto;
+  max-width: var(--max-width);
+}
 
+/** INSTRUCTION SECTION **/
+.instruction__container{
+  margin: 2rem auto;
+  max-width: var(--max-width);
+  border-radius: .5rem;
+  background-color: var(--container-color);
+  overflow: hidden;
+  
+}
+.instruction__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rem 1rem;
+}
 
-/* Dropdown container */
-.dropdownContainer {
+.copyToClipboard__text{
+  font-size: .8rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.instruction_title{
+  padding: .5rem 0rem;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.instruction__list{
+  box-shadow: var(--inner-shadow);
+  background-color: var(--dark-gray-color);
+  padding: 1rem;
+  list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px; /* Mellomrom mellom dropdowns */
+  line-height: 35px;
+}
+.instruction__item{
+  border-bottom: .2px solid rgba(255, 255, 255, 0.1);
 }
 
-.intructionDescription {
-  font-size: 25px;
-  color: #4CAF50;
+@media (max-width: 768px) {
+  /** INTRO **/
+  .introductionContainer{
+    padding: .2rem 1rem;
+  }
+  .title{
+    font-size: 1.25rem;
+  }
+  .description {
+    line-height: 25px;
+    font-size: .8rem;
+  }
+  /** CREATE INSTRUCTION **/
+  .customInstructionTxt{
+    text-align: center;
+    font-size: .8rem;
+  }
+  .createInstructionButton{
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    border: none;
+    background-color: var(--green-color);
+    color: white;
+    border-radius: 20px;
+    font-weight: 200;
+  }
+  .copyToClipboard__text{
+    display: none;
+  }
+
+  /** INSTRUCTION SECTION **/
+  .instruction_title{
+    font-size: .9rem;
+  }
+  .instruction__list{
+    line-height: 25px;
+    font-size: .8rem;
+  }
 }
 
-/* Dropdown button */
-.dropdown {
-  background-color: #4CAF50; /* Grønn farge */
-  color: black;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* Dropdown content */
-.dropdownContent {
-  position: relative;
-  border-radius: 4px;
-  border-color: #ccc;
-  margin-top: 10px;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.greenText {
-  color: #4CAF50; /* Samme grønnfarge som knappene */
-  margin-bottom: 10px;
-}
-
-.closeButton {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
+@media (max-width: 480px) {
+  .title{
+    font-size: .9rem;
+  }
 }

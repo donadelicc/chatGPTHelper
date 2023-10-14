@@ -1,0 +1,113 @@
+.intro__wrapper {
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    z-index: 100;
+    opacity: 0; 
+    /* scale: 0; */
+    animation: fadeIn 0ms .9s forwards; /* Delay for 3 seconds, then fade in */
+  }
+  
+  .intro__card{
+    margin: 2rem;
+    padding: 2rem 2rem;
+    border-radius: .3rem;
+    background-color: var(--light-gray-color);
+    max-width: 600px;
+    min-height: 200px;
+    scale: 0;
+    animation: scaleIn 200ms 1s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    
+    .intro__header{
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .intro__title{
+      margin: 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .title__icon{
+      padding: 0;
+      margin: 0;
+      transform: translateY(3px);
+    }
+    .close__icon:hover{
+        cursor: pointer;
+        color: white;
+    }
+    
+    .intro__body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .intro__main{
+        line-height: 35px;
+        font-size: 1.25rem;
+        margin-right: 1rem;
+    }
+    .intro__footer{
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 1; /* Start with 0 opacity */
+  }
+  to {
+    opacity: 1; /* End with full opacity */
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    scale: 0; /* Start with 0 opacity */
+  }
+  to {
+    scale: 1; /* End with full opacity */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .intro__card{
+    padding: 1rem;
+  }
+  .intro__title{
+    font-size: 1.1rem;
+  }
+  .intro__main{
+    font-size: 1rem;
+    line-height: 25px;
+  }
+  .intro__footer{
+    margin-top: .2rem;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .title__icon{
+    display: none;
+  }
+
+  
+}
