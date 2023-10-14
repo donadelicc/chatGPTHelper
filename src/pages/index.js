@@ -22,8 +22,8 @@ export default function Home() {
   // own defined instructions (just static for now)
   const [customInstructions, setCustomInstructions] = useState(customInstructionArray)
 
-
-
+ 
+  
   return (
     <>
       <Head>
@@ -39,6 +39,7 @@ export default function Home() {
           <Intro />
 
       <div style={{display:"flex"}}>
+        
         <Sidebar defaultInstructionsArray={defaultInstructions} customInstructionsArray={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
         <Main currentInstruction={currentInstruction}/>
       </div>

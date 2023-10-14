@@ -1,5 +1,5 @@
 import {BsPlus} from "react-icons/bs"
-import React, { Dispatch, FunctionComponent, SetStateAction, useState } from 'react'
+import React, { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react'
 import styles from "../styles/sidebar/Sidebar.module.css"
 import {TbLayoutSidebar} from "react-icons/tb"
 import Link from 'next/link'
@@ -28,17 +28,23 @@ interface SidebarProps {
     header: string;
     instruction: string[];
   }[]
-  
 }
 
 const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, customInstructionsArray, setCurrentInstruction}) => {
   const { authUser } = useAuth();
+
+
+
   const [defaultInstructions] = useState(defaultInstructionsArray)
   const [customInstructions] = useState(customInstructionsArray)
+  
 
   const [isOpen, setIsOpen] = useState(true)
   // TODO : Some how get the users custom instructions labels, 
   // TODO : Display the instruction labels below 
+
+
+
 
 
   const handleSignOut = () => {
@@ -73,8 +79,16 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
           </button>
         </div>
         {/* custom component containing list of instructions */}
+        
+        { defaultInstructions && 
+          <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction} /> }
+        { customInstructions && 
+          <Instructions title="my custom instructions" instructions={customInstructions} setCurrentInstruction={setCurrentInstruction} /> }
+
+{/* 
         <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction}/>
-        <Instructions title="my custom instructions"instructions={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
+        <Instructions title="my custom instructions"instructions={customInstructions} setCurrentInstruction={setCurrentInstruction}/> */}
+
 
       </div>
 
