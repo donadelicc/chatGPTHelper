@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import styles from '../styles/createInstruction.module.css'
+import styles from '../styles/hei.module.css'
 
 
-const CreateInstruction = () => {
+const CreateInstructionPage = () => {
   const [instructionType, setInstructionType] = useState('');
   const [instructionContent, setInstructionContent] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -123,4 +123,4 @@ const CreateInstruction = () => {
   );
 };
 
-export default CreateInstruction;
+export default CreateInstructionPage;
