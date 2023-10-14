@@ -51,6 +51,36 @@
     background-color:#202123;
 }
 
+/* Add this to your CSS file */
+.tooltipContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltipText {
+    visibility: hidden;
+    width: fit-content;
+    white-space: nowrap;
+    background-color: black;
+    color: #fff;
+    border-radius: 5px;
+    padding: .2rem .6rem;
+    position: absolute;
+    z-index: 1;
+    top: 3.5px;
+    left: 110px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease 200ms;
+    position: absolute;
+  }
+
+  
+  .tooltipContainer:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+  }
+
 
 
 /** FOOTER **/

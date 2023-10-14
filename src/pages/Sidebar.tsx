@@ -97,7 +97,12 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
     return(
       // CLOSE BUTTON
       <div style={{marginTop: 20, marginLeft: 10}}>
-        <button className={styles.openMenu__button} onClick={handleMenu}><TbLayoutSidebar size={20}/></button> 
+        <div className={styles.tooltipContainer}>
+          <span className={styles.tooltipText}>Open sidebar</span>
+          <button className={styles.openMenu__button} onClick={handleMenu}>
+            <TbLayoutSidebar size={20}/>
+          </button>
+        </div>
       </div>
     )
   }
