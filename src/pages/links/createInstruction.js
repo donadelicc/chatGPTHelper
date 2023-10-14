@@ -1,4 +1,4 @@
-import CreateInstruction from "../../src/pages/CreateInstruction"
+import CreateInstruction from "../CreateInstructionPage"
 
 export default function createInstruction(){
   return <CreateInstruction />

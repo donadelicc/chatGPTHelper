@@ -39,7 +39,6 @@ export default function Home() {
           <Intro />
 
       <div style={{display:"flex"}}>
-
         <Sidebar defaultInstructionsArray={defaultInstructions} customInstructionsArray={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
         <Main currentInstruction={currentInstruction}/>
       </div>

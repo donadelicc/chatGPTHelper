@@ -67,6 +67,7 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
               New Instruction
             </button>
           </Link>
+
           <button className={`${styles.closeMenu__button} ${!isOpen ? styles.openMenu__button : ''}`} onClick={handleMenu}>
             <TbLayoutSidebar size={20}/>
           </button>
@@ -83,8 +84,8 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
           <CustomButton label="Log out" gradient={linearGradients.redLinearGradient} onClick={handleSignOut}/>
           ) : (
           <div style={{display:"flex", flexDirection:"column", gap:"1rem"}}>            
-            <CustomButton label="Log in" gradient={linearGradients.greenLinearGradient} path="/logIn"/>
-            <CustomButton label="sign up" gradient={linearGradients.blueLinearGradient} path="signUp"/>
+            <CustomButton label="Log in" gradient={linearGradients.greenLinearGradient} path="/auth/signin"/>
+            <CustomButton label="sign up" gradient={linearGradients.blueLinearGradient} path="/auth/signup"/>
           </div>
 
         )}

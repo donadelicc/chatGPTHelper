@@ -109,7 +109,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/Main.tsx"  ],
+, "src/pages/Main.tsx", "src/pages/CreateInstructionPage.jsx"  ],
   "exclude": [
     "node_modules"
   ]

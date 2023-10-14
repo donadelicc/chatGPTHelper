@@ -58,7 +58,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
         <>
         <div className={styles.createInstructionContainer}>
           <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <CustomButton  label='Create Instruction' color={bgColor.green} path='/createInstruction' Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
+          <CustomButton  label='Create Instruction' color={bgColor.green} Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
       </div>
       </>
 
