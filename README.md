@@ -5,8 +5,8 @@
 A Next.js application that provides custom instruction sets for ChatGPT, enhancing user experience with tailored AI responses.
 
 ## Screenshot
+<img width="897" alt="image" src="https://github.com/howardweb/chatGPTHelper/assets/54988597/8bde52f5-fef5-4c36-ae0a-af5f8723b6d5">
 
-![image](https://github.com/donadelicc/chatGPTHelper/assets/54988597/6f447f1d-6dc3-46bc-947d-b977111ba073)
 
 
 
