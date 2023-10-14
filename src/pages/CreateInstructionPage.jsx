@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import styles from '../styles/createInstruction.module.css';
-//import NavBar from './pages/navbar';
+import styles from '../styles/createInstruction.module.css'
+
 
 const CreateInstruction = () => {
   const [instructionType, setInstructionType] = useState('');
