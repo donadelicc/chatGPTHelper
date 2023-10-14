@@ -78,8 +78,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
         <h3 className={styles.instruction_title}>{header}</h3>
           {/* Library lets us copy the text */}
           <CopyToClipboard 
-            text={instructions}
-            className={styles.copyToClipboard__button}
+            text={instructions.join('\n')}
           >
             <div onClick={() => setCopied(true)} style={{display: "flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
             { copied ? (
