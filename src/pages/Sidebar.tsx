@@ -70,7 +70,15 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
           <Link href="links/createInstruction" legacyBehavior>
             <button className={styles.newInstruction__button}> 
               <BsPlus size={20}/>
-              New Instruction
+              { authUser ? (
+                <>
+                New Instruction
+                </>
+              ) : (
+                <>
+                Create Instruction
+                </>
+              ) }
             </button>
           </Link>
 
@@ -80,14 +88,48 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
         </div>
         {/* custom component containing list of instructions */}
         
-        { defaultInstructions && 
-          <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction} /> }
-        { customInstructions && 
-          <Instructions title="my custom instructions" instructions={customInstructions} setCurrentInstruction={setCurrentInstruction} /> }
+    
 
-{/* 
-        <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction}/>
-        <Instructions title="my custom instructions"instructions={customInstructions} setCurrentInstruction={setCurrentInstruction}/> */}
+        {/* { 
+          defaultInstructions && 
+            <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction} /> 
+        }
+
+        { 
+          customInstructions && 
+            <Instructions title="my custom instructions" instructions={customInstructions} setCurrentInstruction={setCurrentInstruction} /> 
+        } */}
+
+    {authUser ? (
+      <>
+        {defaultInstructions && (
+          <Instructions
+            title="the 10 hottest instructions"
+            instructions={defaultInstructions}
+            setCurrentInstruction={setCurrentInstruction}
+          />
+        )}
+
+        {customInstructions && (
+          <Instructions
+            title="my custom instructions"
+            instructions={customInstructions}
+            setCurrentInstruction={setCurrentInstruction}
+          />
+        )}
+      </>
+    ) : (
+      <>
+        {defaultInstructions && (
+          <Instructions
+            title="the 10 hottest instructions"
+            instructions={defaultInstructions}
+            setCurrentInstruction={setCurrentInstruction}
+          />
+        )}
+      </>
+    )}
+
 
 
       </div>
