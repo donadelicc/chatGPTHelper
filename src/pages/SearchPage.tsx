@@ -63,53 +63,9 @@ export const categoryArray = [
         icon: <BiCategoryAlt size={17}/>,
       },
       {
-        title: "Another one",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Another one",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Another one",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
         title: "Tutankhamun",
         icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-    ]   
-  },
-  { category: "Something more", 
-    underCategories: [
-      {
-        title: "Another one",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
-      {
-        title: "Tutankhamun",
-        icon: <BiCategoryAlt size={17}/>,
-      },
+      }
     ]   
   }
 ] 
@@ -139,6 +95,7 @@ const SearchPage = () => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.top__shadow}></div>
       <Header />
       <div className={styles.container}>
         {/* FILTER CONTAINER */}
@@ -158,20 +115,20 @@ const SearchPage = () => {
           {filteredCategories.length > 0 ? (
             filteredCategories.map(category => (
               category.underCategories.length > 0 && (
-              <div className={styles.category__container} key={category.category}>
+                <div className={styles.category__container} key={category.category}>
                 <h3 className={styles.category__title}>{category.category}</h3>
                 <div className={styles.categories}>
 
                   {category.underCategories.map(underCategory => (
                     <CategoryButton key={underCategory.title} label={underCategory.title} Icon={underCategory.icon} />
-                  )) }
+                    )) }
                 </div>
               </div>
               )
-            ))
-          ) : (
-            <p>No categories available</p>
-          )}
+              ))
+              ) : (
+                <p>No categories available</p>
+                )}
         </div>
 
         {/* OUTPUT */}
@@ -179,6 +136,7 @@ const SearchPage = () => {
           <h1>Output</h1>
         </div>
       </div>
+      <div className={styles.bottom__shadow}></div>
     </div>
   );
 };
