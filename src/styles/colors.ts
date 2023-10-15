@@ -6,6 +6,7 @@ export const bgColor = {
 }
 
 
+
 export const linearGradients = {
     greenLinearGradient: 'linear-gradient(45deg, #4A8F6D,  #65C294)',
     redLinearGradient: 'linear-gradient(45deg, #B30900, #FF2519)',
