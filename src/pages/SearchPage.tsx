@@ -7,6 +7,7 @@ import {BiBookAlt} from 'react-icons/bi'
 import {BsSearch} from 'react-icons/bs'
 import {BiCategoryAlt} from 'react-icons/bi'
 import {IoSettingsOutline} from 'react-icons/io5'
+import InstructionList from '../components/search/InstructionList'
 
 
 // inner custom categories
@@ -133,7 +134,7 @@ const SearchPage = () => {
 
         {/* OUTPUT */}
         <div className={styles.results__container}>
-          <h1>Output</h1>
+          <InstructionList />
         </div>
       </div>
       <div className={styles.bottom__shadow}></div>
