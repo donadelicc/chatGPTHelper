@@ -5,8 +5,9 @@ import CategoryButton from '../components/search/CategoryButton'
 import {BsCodeSlash} from 'react-icons/bs'
 import {BiBookAlt} from 'react-icons/bi'
 import {BsSearch} from 'react-icons/bs'
-import {FaRobot} from 'react-icons/fa'
 import {BiCategoryAlt} from 'react-icons/bi'
+import {IoSettingsOutline} from 'react-icons/io5'
+
 
 // inner custom categories
 export const categoryArray = [
@@ -47,11 +48,11 @@ export const categoryArray = [
     underCategories: [
       {
         title: "Machine learning beginner",
-        icon: <FaRobot size={17}/>,
+        icon: <IoSettingsOutline size={17}/>,
       },
       {
         title: "Machine learning advanced",
-        icon: <FaRobot size={17}/>,
+        icon: <IoSettingsOutline size={17}/>,
       },
     ]   
   },
@@ -59,6 +60,50 @@ export const categoryArray = [
     underCategories: [
       {
         title: "Another one",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Another one",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Another one",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Another one",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+    ]   
+  },
+  { category: "Something more", 
+    underCategories: [
+      {
+        title: "Another one",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
+        icon: <BiCategoryAlt size={17}/>,
+      },
+      {
+        title: "Tutankhamun",
         icon: <BiCategoryAlt size={17}/>,
       },
       {
@@ -75,7 +120,9 @@ const SearchPage = () => {
   const [categories, setCategories] = useState(categoryArray);
   const [userSearch, setUserSearch] = useState('');
 
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
     setUserSearch(e.target.value);
   }
 
@@ -92,8 +139,8 @@ const SearchPage = () => {
 
   return (
     <div className={styles.wrapper}>
+      <Header />
       <div className={styles.container}>
-        <Header />
         {/* FILTER CONTAINER */}
         <div className={styles.filter__container}>
           <div className={styles.input__container}>
@@ -128,7 +175,9 @@ const SearchPage = () => {
         </div>
 
         {/* OUTPUT */}
-        <div></div>
+        <div className={styles.results__container}>
+          <h1>Output</h1>
+        </div>
       </div>
     </div>
   );
