@@ -1,0 +1,37 @@
+.button{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    border: .7px solid rgb(221, 221, 221);
+    border-radius: .3rem;
+    background-color: white;
+    overflow: hidden;
+    width: fit-content;
+    transition: all 200ms ease-in;
+}
+
+.button:hover{
+    background: linear-gradient(180deg, white, rgba(0, 0, 0, 0.05));
+}
+
+.icon__container{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text__container{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    color: rgb(72, 72, 72);
+}
+
+.button__icon{
+    transform: translateY(2px);
+}

@@ -12,6 +12,7 @@
   --green-color: #4CAF50;
   --line-color: #34353a;
   --opacity: 0.5;
+  
   /* * FONT SIZES * */
   --button-size: 1.15rem;
   --big-title: 2rem;
@@ -30,4 +31,9 @@ body {
   background-color: var(--light-gray-color);
   color: var(--text-color);
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
+
+}
+html {
+ height: 100vh;
 }

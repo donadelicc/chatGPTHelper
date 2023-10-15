@@ -1,7 +1,8 @@
 export const bgColor = {
-    green: "#65C294",
+    green: "#12b981",
     blue: "#00BAFF",
-    red: "#FF2519"
+    red: "#FF2519",
+    orange: "#f7b759"
 }
 
 
