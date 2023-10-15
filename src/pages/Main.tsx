@@ -11,6 +11,8 @@ import {FaClipboardList} from "react-icons/fa"
 import {BsCheck2All} from "react-icons/bs"
 import {LiaSearchSolid} from "react-icons/lia"
 import {AiOutlinePlus} from "react-icons/ai"
+import {TbWorldCode} from "react-icons/tb"
+
 // components
 import CustomButton from '../components/CustomButton';
 
@@ -45,7 +47,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
        <div className={styles.introduction}>
         <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
           <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
-          <CustomButton label='brows' color={bgColor.red} Icon={<LiaSearchSolid />} gradient={linearGradients.greenLinearGradient}/>
+          <CustomButton label='brows' path='/links/search' color={bgColor.red} Icon={<TbWorldCode />} gradient={linearGradients.greenLinearGradient}/>
         </div>
           <div className={styles.introductionContainer}>
             <p className={styles.description}>
