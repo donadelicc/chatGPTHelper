@@ -58,7 +58,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
         <>
         <div className={styles.createInstructionContainer}>
           <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <CustomButton  label='Create Instruction' color={bgColor.green} Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
+          <CustomButton  label='Create Instruction' path='links/createInstruction' color={bgColor.green} Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
       </div>
       </>
 
@@ -66,7 +66,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
        <div className={styles.notLoggedInSection}>
          <p>Please remember to 
               <span>
-                <Link href="/logIn" className={styles.loginShortcut} style={{color: bgColor.green}}>log in</Link> 
+                <Link href="/auth/signin" className={styles.loginShortcut} style={{color: bgColor.green}}>log in</Link> 
               </span>
               to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create custom instructions.
             </p>

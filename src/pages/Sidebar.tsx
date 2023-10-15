@@ -67,7 +67,7 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
       <div>
         {/* HEADER */}
         <div className={styles.header}>
-          <Link href="/createInstruction" legacyBehavior>
+          <Link href="links/createInstruction" legacyBehavior>
             <button className={styles.newInstruction__button}> 
               <BsPlus size={20}/>
               New Instruction

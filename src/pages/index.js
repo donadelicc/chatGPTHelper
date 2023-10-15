@@ -34,12 +34,10 @@ export default function Home() {
       { authUser ? (
         <></>
         ) : (
-          <></>
-          )}
           <Intro />
+          )}
 
       <div style={{display:"flex"}}>
-        
         <Sidebar defaultInstructionsArray={defaultInstructions} customInstructionsArray={customInstructions} setCurrentInstruction={setCurrentInstruction}/>
         <Main currentInstruction={currentInstruction}/>
       </div>
