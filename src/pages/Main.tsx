@@ -68,7 +68,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
               <span>
                 <Link href="/auth/signin" className={styles.loginShortcut} style={{color: bgColor.green}}>log in</Link> 
               </span>
-              to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create custom instructions.
+              to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create your very own custom instructions for ChatGPT.
             </p>
        </div>
       )}
