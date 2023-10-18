@@ -1,6 +1,6 @@
 // hooks/useFirestoreData.ts
 import { useState, useEffect } from 'react';
-import { db } from '../../config/firebase.js';
+import { db } from '../config/firebase.js';
 import { collection, getDocs } from 'firebase/firestore';
 
 // Define the shape of your data

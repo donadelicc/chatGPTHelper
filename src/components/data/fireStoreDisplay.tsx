@@ -1,6 +1,6 @@
 // components/FirestoreDataDisplay.tsx
 import React from 'react';
-import useFirestoreData from '../../pages/hooks/useFirestoreData';
+import useFirestoreData from '../../hooks/useFirestoreData';
 
 function FirestoreDataDisplay() {
   const { data, loading } = useFirestoreData();
