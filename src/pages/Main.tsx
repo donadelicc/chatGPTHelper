@@ -17,12 +17,9 @@ import FirestoreDataDisplay from '../components/data/fireStoreDisplay';
 
 
 interface MainProps{
-  header: string;
-  instruction: string[];
-
   currentInstruction: {
-    header: string;
-    instruction: string[];
+  name: string;
+  instruction: string[];
   };
 }
 
@@ -30,15 +27,20 @@ interface MainProps{
 const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
 
     const { authUser } = useAuth();
-    const [activeDropdown, setActiveDropdown] = useState(null);
+    //const [activeDropdown, setActiveDropdown] = useState(null);
     const[copied, setCopied] = useState(false)
 
     let header = ""
-    let instructions: any[] = []
+    let instructions: string[] = []
 
     if(currentInstruction){
-      header = currentInstruction.header
+      header = currentInstruction.name
       instructions = currentInstruction.instruction
+      
+      console.log(header); // --> undefined
+      console.log(instructions);
+      console.log(currentInstruction);
+
     }
 // test
   return (
@@ -77,10 +79,11 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
 
       <div className={styles.instruction__container}>
         <div className={styles.instruction__header}>
-        <h3 className={styles.instruction_title}>{header}</h3>
+        <h3 className={styles.instruction_title}>{currentInstruction?.name}</h3>
           {/* Library lets us copy the text */}
           <CopyToClipboard 
-            text={instructions.join('\n')}
+            
+            text={instructions.join(';')}
           >
             <div onClick={() => setCopied(true)} style={{display: "flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
             { copied ? (
@@ -96,7 +99,9 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
             </div>
           </CopyToClipboard>
         </div>
-          <div className={styles.instruction__list}>{instructions.map((instruction, index) =>(
+          <div className={styles.instruction__list}>
+            {/* Consider using a unique identifier (instence key from firestore?) from your data as the key instead. */}
+            {Array.isArray(currentInstruction?.instruction) && currentInstruction?.instruction.map((instruction, index) =>(
             <li className={styles.instruction__item} key={index}>{instruction}</li>
             ))}
           </div>
