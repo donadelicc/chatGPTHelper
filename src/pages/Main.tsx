@@ -13,6 +13,8 @@ import {LiaSearchSolid} from "react-icons/lia"
 import {AiOutlinePlus} from "react-icons/ai"
 // components
 import CustomButton from '../components/CustomButton';
+import FirestoreDataDisplay from '../components/data/fireStoreDisplay';
+
 
 interface MainProps{
   header: string;
@@ -98,8 +100,11 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
             <li className={styles.instruction__item} key={index}>{instruction}</li>
             ))}
           </div>
-
         </div>
+
+            <h1>Global Instructions from Database</h1>
+            <FirestoreDataDisplay />
+
       </main>
 
   
