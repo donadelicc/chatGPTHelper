@@ -9,7 +9,7 @@ const InstructionList = () => {
   const { instructionSets: instructions, setInstructionSets: setInstructions } = useInstructions();
   
   return (
-    <div>
+    <div style={{display:"flex", flexDirection:"column", gap:10, height:"100%", overflow:"scroll"}}>
      {instructions.map((instruction) => (
       <InstructionItem header={instruction.header} instruction={instruction.instruction} />
      ))}

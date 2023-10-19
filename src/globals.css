@@ -6,14 +6,13 @@
   /* * COLORS * */
   --light-gray-color: #2d2d2d;
   --mid-gray-color: #343541;
-  --dark-gray-color:  #202123;
+  --dark-gray-color:  #242424;
   --container-color: rgba(32, 33, 35, 0.5);
   --text-color: rgb(192, 192, 192);
   --green-color: #4CAF50;
   --line-color: #34353a;
   --opacity: 0.5;
   --input-color: #5c5c5c;
-  
   /* * FONT SIZES * */
   --button-size: 1.15rem;
   --big-title: 2rem;

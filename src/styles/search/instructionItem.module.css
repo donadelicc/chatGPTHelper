@@ -1,0 +1,14 @@
+.container{
+    background-color: var(--light-gray-color);
+    border-radius: .3rem;
+    padding: .5rem;
+    color: var(--text-color);
+}
+.container * {
+    margin: 0;
+    padding: 0;
+}
+.title {
+    font-size: var(--text-size);
+    font-weight: 400;
+}
