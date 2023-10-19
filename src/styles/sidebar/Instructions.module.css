@@ -10,18 +10,19 @@
     border-radius: .3rem;
     background-color: inherit;
     font-size: 1rem;
-    color: white;
+    color: rgb(53, 53, 53);
     cursor: pointer;
     white-space: nowrap; 
     overflow: hidden;
 }
-.instructionButton:hover{
-    background-color: #343541;
+.instructionButton:hover, .instructionButton:focus{
+    outline: none;
+    background-color: rgb(41, 41, 41);
+    color: white;
 }
 
 .instruction__label{
     font-size: .8rem;
-    color: #8E8E9F;
     text-transform: capitalize;
 }
 .instruction__list{

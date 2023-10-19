@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase'; // Importer fra din firebase.js fil
 import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
-import {bgColor, linearGradients} from '../styles/colors'
+import appStyles, {bgColor, linearGradients} from '../styles/colors'
 
 import CustomButton from "../components/CustomButton"
 import Instructions from "../components/sidebar/Instructions"
@@ -66,12 +66,14 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
   if (isOpen){
   // SIDEBAR
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{backgroundColor: appStyles.colors.background}}>
       <div>
         {/* HEADER */}
         <div className={styles.header}>
           <Link href="links/createInstruction" legacyBehavior>
-            <button className={styles.newInstruction__button}> 
+            <button 
+              className={styles.newInstruction__button} 
+              style={{fontSize: appStyles.fontSize.button, fontWeight: appStyles.fontVariant.medium}}> 
               <BsPlus size={20}/>
               { authUser ? (
                 <>
@@ -89,20 +91,7 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
             <TbLayoutSidebar size={20}/>
           </button>
         </div>
-        {/* custom component containing list of instructions */}
-        
-    
-
-        {/* { 
-          defaultInstructions && 
-            <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction} /> 
-        }
-
-        { 
-          customInstructions && 
-            <Instructions title="my custom instructions" instructions={customInstructions} setCurrentInstruction={setCurrentInstruction} /> 
-        } */}
-
+   
     {authUser ? (
       <>
         {defaultInstructions && (
@@ -132,9 +121,6 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
         )}
       </>
     )}
-
-
-
       </div>
 
       {/* Footer */}
@@ -142,7 +128,7 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
         {authUser ? (
           <CustomButton label="Log out" gradient={linearGradients.redLinearGradient} onClick={handleSignOut}/>
           ) : (
-          <div style={{display:"flex", flexDirection:"column", gap:"1rem"}}>            
+          <div style={{display:"flex", flexDirection:"row", gap:"1rem"}}>            
             <CustomButton label="Log in" gradient={linearGradients.greenLinearGradient} path="/auth/signin"/>
             <CustomButton label="sign up" gradient={linearGradients.blueLinearGradient} path="/auth/signup"/>
           </div>

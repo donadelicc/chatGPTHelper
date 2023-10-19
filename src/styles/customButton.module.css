@@ -7,15 +7,15 @@
     color: white;
     font-size: var(--button-size);
     transition: all 100ms ease;
-    width: 100%;
-    opacity: .6;
+    opacity: .4;
     display: flex;
+    max-width: 50%;
+    min-width: 70px;
     justify-content: center;
     align-items: center;
-
     gap: .5rem;
     text-transform: capitalize;
-
+    flex-wrap: nowrap;
 }
 .icon{
     transform: translateY(2px);
@@ -24,7 +24,8 @@
     text-decoration: none;
     border: none;
 }
-.button:hover{
+.button:hover, .button:focus {
+    outline: none;
     cursor: pointer;
     scale: 1;
     opacity: 1;

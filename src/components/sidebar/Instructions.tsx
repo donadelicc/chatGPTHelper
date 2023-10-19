@@ -1,6 +1,7 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from 'react'
 import styles from '../../styles/sidebar/Instructions.module.css'
 import { BsCodeSquare } from 'react-icons/bs'
+import appStyles from '../../styles/colors';
 
 interface InstructionProps {
   instructions: Array<{
@@ -29,14 +30,16 @@ const Instructions: FunctionComponent<InstructionProps> = ({instructions, setCur
 
   return (
     <div className={styles.instructions__container}>
-      <h3 className={styles.instruction__label}>{title}</h3>
-
+      <h3 className={styles.instruction__label} style={{color: appStyles.colors.text, fontSize: appStyles.fontSize.text, fontWeight: appStyles.fontVariant.bold}}>{title}</h3>
       <ul className={styles.instruction__list}>
        {/* Looping trough the array of default instructions  */}
        {instructions.map((instruction, index) => (
 
         <li className={styles.instruction} key={index}>
-          <button className={styles.instructionButton} onClick={() => handleInstructionClick(instruction)} >
+          <button 
+            style={{padding: appStyles.padding.small, fontSize: appStyles.fontSize.listItem}}
+            className={styles.instructionButton} 
+            onClick={() => handleInstructionClick(instruction)} >
             <div style={{display:"flex", gap: "10px", alignItems:"center"}}>
               <BsCodeSquare />
               <span>{instruction.header.slice(0,20)}{instruction.header.length < 21 ? "": "..."}</span>

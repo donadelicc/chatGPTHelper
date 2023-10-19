@@ -40,7 +40,7 @@ const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
       header = currentInstruction.header
       instructions = currentInstruction.instruction
     }
-// test
+
   return (
     <main className={styles.main}>
 

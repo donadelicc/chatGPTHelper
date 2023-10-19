@@ -23,18 +23,19 @@
 .newInstruction__button, .closeMenu__button{
     padding: .5rem 1rem;
     border-radius: .25rem;
-    border: 2px solid #343541;
     background-color: transparent;
-    color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
     gap: .5rem;
-    transition: all ease 200ms;
+    transition: all ease 150ms;
 }
-.closeMenu__button:hover, .newInstruction__button:hover{
-    border: 2px solid rgba(255, 255, 255, 0.551);
+.closeMenu__button:hover, .closeMenu__button:focus, .newInstruction__button:hover, .newInstruction__button:focus{
+    outline: none;
+    background-color: rgb(41, 41, 41);
+    color: white;
 }
 .openMenu__button{
     position: absolute;
@@ -45,10 +46,12 @@
     border-radius: .3rem;
     padding: .5rem .5rem .4rem .5rem;
     color: rgb(210, 210, 210);
-    transition: all 200ms ease;
+    transition: all 150ms ease;
 }
-.openMenu__button:hover{
-    background-color:#202123;
+.openMenu__button:hover, .openMenu__button:focus {
+    outline: none;
+    color: black;
+    background-color:white;
 }
 
 /* Add this to your CSS file */
@@ -85,6 +88,7 @@
 
 /** FOOTER **/
 .footer{
+    margin: 0rem auto;
 }
 
 

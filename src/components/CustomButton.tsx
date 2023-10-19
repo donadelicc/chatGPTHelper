@@ -16,11 +16,9 @@ interface ButtonProps {
 
 const CustomButton:FunctionComponent<ButtonProps> = ({path, label, color, onClick, Icon, gradient}) => {
   return (
-    <Link href={path ? path : "#"} onClick={onClick} style={{textDecoration:"none"}}>
-      <button className={styles.button} style={{ background: gradient }}>
-        <p style={{margin:0}}>{label}</p>
-        {Icon && <span className={styles.icon}>{Icon}</span>}
-      </button>
+    <Link href={path ? path : "#"} onClick={onClick} style={{textDecoration:"none", background: gradient}} className={styles.button}>
+      <p style={{margin:0}}>{label}</p>
+      {Icon && <span className={styles.icon}>{Icon}</span>}
     </Link>
   )
 }
