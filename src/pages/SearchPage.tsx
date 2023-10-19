@@ -174,7 +174,7 @@ const SearchPage = () => {
 
         {/* OUTPUT */}
         <div className={styles.results__container}>
-          <InstructionList />
+          <InstructionList/>
         </div>
       </div>
       <div className={styles.bottom__shadow}></div>
