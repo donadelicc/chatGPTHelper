@@ -2,14 +2,14 @@
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    background-color: rgb(250, 250, 250);
+    background-color: var(--dark-gray-color);
     overflow-y: scroll;
 }
 
 .top__shadow{
     width: 100%;
     height: 50px;
-    background: linear-gradient(0deg, rgba(12, 12, 12, 0), rgba(250, 250, 250, 0.7), rgba(250, 250, 250, 1));
+    background: linear-gradient(0deg, #20212300, #2021236b, #202123);
     position: fixed;
     top: 0;
     z-index: 100;
@@ -17,7 +17,7 @@
 .bottom__shadow{
     width: 100%;
     height: 50px;
-    background: linear-gradient(0deg, rgba(250, 250, 250, 0.833), rgba(255, 255, 255, 0.7), rgba(250, 250, 250, 0));
+    background: linear-gradient(0deg, #202123, #2021237c, #20212302);
     position: fixed;
     bottom: 0;
     z-index: 100;
@@ -33,9 +33,9 @@
     padding: 0rem 1.5rem;
 }
 .filter__container{
-    max-width: 300px;
+    max-width: 350px;
     height: 100%;
-    background-color: rgb(250, 250, 250);
+    background-color: inherit;
     padding-right: 1rem;
    /* border: 1px solid forestgreen; */
 }
@@ -43,15 +43,23 @@
     position: relative;
 }
 .filer__input{
+    outline: none;
     /* calculate the with of the input by subtracting the padding */
     width: calc(100% - 30px - 0.6rem);
     border: none;
     border-radius: 2rem;
     padding: .35rem .6rem;
-    border: .9px solid rgba(218, 218, 218, 0.634);
+    /* border: .9px solid var(--text-color); */
     font-size: .9rem;
     padding-left: 30px;
+    background-color: var(--light-gray-color);
+    color: white;
 }
+
+.filer__input::placeholder{
+    color: var(--text-color);
+}
+
 .input__icon{
     z-index: 10;
     position: absolute;
@@ -63,7 +71,7 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: .7rem;
+    gap: .5rem;
 }
 .category__title{
     margin: 0%;
@@ -88,7 +96,7 @@
 .results__container{
     flex: 1;
     padding: 1rem;
-    background-color: white;
+    background-color: var(--light-gray-color);
     border-radius: 1rem;
     display: flex;
     justify-content: center;

@@ -8,6 +8,7 @@ import {BsSearch} from 'react-icons/bs'
 import {BiCategoryAlt} from 'react-icons/bi'
 import {IoSettingsOutline} from 'react-icons/io5'
 import InstructionList from '../components/search/InstructionList'
+import { useInstructions } from '../contexts/Global_Instructions'
 
 
 // inner custom categories
@@ -71,28 +72,57 @@ export const categoryArray = [
   }
 ] 
 
-
+interface Instruction {
+  Icon: ReactNode | undefined
+  category: string;
+  header: string;
+  instruction: string[];
+}
 
 const SearchPage = () => {
-  const [categories, setCategories] = useState(categoryArray);
+
+  const { instructionSets: instructions, setInstructionSets: setInstructions } = useInstructions();
+
+  const [categories, setCategories] =  useState<string[]>([])
   const [userSearch, setUserSearch] = useState('');
 
+
+  useEffect(() => {
+    if(instructions){
+      const newCategories = instructions.map(instruction => instruction.category)
+      setCategories(newCategories)
+    }
+  }, [instructions])
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     setUserSearch(e.target.value);
   }
 
-  const filteredCategories = categories.map(category => {
-    const filteredUnderCategories = category.underCategories.filter(underCategory =>
-      underCategory.title.toLowerCase().includes(userSearch.toLowerCase())
-    );
+  
+  // Function to group an array of instructions by their category
+  const groupByCategory = (array: Instruction[]): Record<string, Instruction[]> => {
+    // The 'reduce' method is used to reduce the array to a single object
+    // 'acc' (accumulator) is the object that will be returned
+    // 'instruction' is each individual instruction object in the array
+    return array.reduce((acc : Record<string, Instruction[]>, instruction: Instruction) => {
+      // 'key' is the category of the instruction. We use this to group instructions.
+      const key = instruction.category;
+      // If the category does not already exist as a key in 'acc', create it and initialize with an empty array
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      // Push the current 'instruction' into the array corresponding to its category
+      acc[key].push(instruction);
+      // Return the updated 'acc' for the next iteration
+      return acc;
+    }, {} as Record<string, Instruction[]>);  // The initial value of 'acc' is an empty object
+  };
+  
+  const groupedInstructions = groupByCategory(instructions)
+  
+  
 
-    return {
-      ...category,
-      underCategories: filteredUnderCategories
-    };
-  });
 
   return (
     <div className={styles.wrapper}>
@@ -111,25 +141,35 @@ const SearchPage = () => {
               onChange={(e) => handleSearch(e)}
             />
           </div>
+         
+          {Object.keys(groupedInstructions).length > 0 ? (
+            Object.keys(groupedInstructions).map((category) => {
+              // Define filteredInstructions, within the scope where 'category' is defined
+              const filteredInstructions = groupedInstructions[category].filter(instruction =>
+                instruction.header.toLowerCase().includes(userSearch.toLowerCase())
+              );
 
-          {/* Check if the array is empty */}
-          {filteredCategories.length > 0 ? (
-            filteredCategories.map(category => (
-              category.underCategories.length > 0 && (
-                <div className={styles.category__container} key={category.category}>
-                <h3 className={styles.category__title}>{category.category}</h3>
-                <div className={styles.categories}>
+              // Only render this category if there are instructions to show
+              if (filteredInstructions.length > 0) {
+                return (
+                  <div className={styles.category__container} key={category}>
+                    <h3 className={styles.category__title}>{category}</h3>
+                    <div className={styles.categories}>
+                      {filteredInstructions.map((instruction) => (
+                        <CategoryButton label={instruction.header} Icon={instruction.Icon}/>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return null;  // Return null if no instructions to show for this category
+            })
+          ) : (
+            <p>No categories available</p>
+          )}
+        <div>
+      </div>
 
-                  {category.underCategories.map(underCategory => (
-                    <CategoryButton key={underCategory.title} label={underCategory.title} Icon={underCategory.icon} />
-                    )) }
-                </div>
-              </div>
-              )
-              ))
-              ) : (
-                <p>No categories available</p>
-                )}
         </div>
 
         {/* OUTPUT */}

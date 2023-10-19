@@ -16,16 +16,19 @@ import Instructions from "../components/sidebar/Instructions"
 interface SidebarProps {
   defaultInstructionsArray: {
     header: string;
+    category: string
     instruction: string[];
   }[]
 
   setCurrentInstruction: Dispatch<SetStateAction<{
     header: string;
+    category?: string
     instruction: string[];
   }>>
 
   customInstructionsArray: {
     header: string;
+    category: string
     instruction: string[];
   }[]
 }

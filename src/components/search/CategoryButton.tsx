@@ -38,7 +38,6 @@ const CategoryButton: FunctionComponent<CategoryButtonProps> = ({label, Icon})=>
     };
   
 
-
   return (
     <button className={styles.button}>
       <div className={styles.icon__container} style={backgroundStyle}>

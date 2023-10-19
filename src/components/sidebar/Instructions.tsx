@@ -5,11 +5,13 @@ import { BsCodeSquare } from 'react-icons/bs'
 interface InstructionProps {
   instructions: Array<{
     header: string;
+    category: string
     instruction: string[]
   }>
   title: string
   setCurrentInstruction?: Dispatch<SetStateAction<{
     header: string;
+    category?: string;
     instruction: string[];
   }>>;
 }

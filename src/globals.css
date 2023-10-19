@@ -4,7 +4,7 @@
 
 :root{
   /* * COLORS * */
-  --light-gray-color: #444654;
+  --light-gray-color: #2d2d2d;
   --mid-gray-color: #343541;
   --dark-gray-color:  #202123;
   --container-color: rgba(32, 33, 35, 0.5);
@@ -12,6 +12,7 @@
   --green-color: #4CAF50;
   --line-color: #34353a;
   --opacity: 0.5;
+  --input-color: #5c5c5c;
   
   /* * FONT SIZES * */
   --button-size: 1.15rem;

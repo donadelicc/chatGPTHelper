@@ -2,14 +2,16 @@
 
 export const customInstructionArray = [
   {
-      header: "Rhythmic helper", 
+      header: "Rhythmic helper",
+      category: "Programming",
       instruction: [
         "you are a poet",
         "Help with rhyming words",
       ]
-  },  
-  {
-    header: "English teacher", 
+    },  
+    {
+      header: "English teacher", 
+      category: "Programming", 
     instruction: [
       "you are a english teacher",
       "you give advice and corrections",

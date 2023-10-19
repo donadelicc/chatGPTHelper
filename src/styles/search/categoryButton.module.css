@@ -3,16 +3,19 @@
     padding: 0;
     display: flex;
     gap: 10px;
-    border: .7px solid rgb(221, 221, 221);
+    border: .7px solid rgb(85, 85, 85);
     border-radius: .3rem;
-    background-color: white;
+    background-color: rgb(40, 40, 40);
     overflow: hidden;
     width: fit-content;
-    transition: all 200ms ease-in;
+    transition: all 150ms ease-in;
+    color: white;
+    scale: 1;
 }
 
 .button:hover{
-    background: linear-gradient(180deg, white, rgba(0, 0, 0, 0.05));
+    scale: 1.03;
+    /* background-color: rgba(0, 0, 0, 0.076); */
 }
 
 .icon__container{
@@ -29,7 +32,7 @@
     align-items: center;
     justify-content: center;
     padding-right: 10px;
-    color: rgb(72, 72, 72);
+    color: var(--text-color);
 }
 
 .button__icon{
