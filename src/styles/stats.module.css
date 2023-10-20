@@ -12,11 +12,11 @@
 }
 .left__side{
   border-radius: .375rem 0rem 0rem .375rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.4); */
 }
 .right__side{
   border-radius: 0rem .375rem  4rem 0rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 @keyframes fillBar {
