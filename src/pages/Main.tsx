@@ -104,9 +104,6 @@ const Main: FunctionComponent<MainProps> = ({ currentInstruction }) => {
           </p>
         </div>
       )}
-      <div style={{maxWidth: 1000, margin:"0 auto"}}>
-        <Stats />
-      </div>
 
       <div className={styles.instruction__container}>
         <div className={styles.instruction__header}>
@@ -145,6 +142,9 @@ const Main: FunctionComponent<MainProps> = ({ currentInstruction }) => {
           ))}
         </div>
       </div>
+        <div style={{maxWidth: 1000, margin:"0 auto"}}>
+          <Stats />
+        </div>
     </main>
   );
 };
