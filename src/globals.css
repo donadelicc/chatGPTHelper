@@ -1,9 +1,14 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
 :root{
   /* * COLORS * */
+  --sidebar-color: #202123;
+  --label-color: #8e8e9f;
+  --bg-color: #444654;
+  --footer-color: #353641;
+  --border-color: #4d4d4f;
   --light-gray-color: #2d2d2d;
   --mid-gray-color: #343541;
   --dark-gray-color:  #242424;
@@ -28,7 +33,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: var(--light-gray-color);
+  background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Poppins', sans-serif;
   height: 100vh;

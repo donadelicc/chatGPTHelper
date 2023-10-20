@@ -1,22 +1,23 @@
-import React, {FunctionComponent, useState} from 'react'
-import styles from "../styles/Home.module.css"
-import { useAuth } from '../contexts/authDetails'; // Angi riktig sti til AuthContext
-import Link from 'next/link'
+import React, { FunctionComponent, useState } from "react";
+import styles from "../styles/Home.module.css";
+import { useAuth } from "../contexts/authDetails"; // Angi riktig sti til AuthContext
+import Link from "next/link";
 // Copy to clipboard library from react
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 // custom color schema
-import { bgColor, linearGradients } from '../styles/colors';
+import { bgColor, linearGradients } from "../styles/colors";
 // Icons
-import {FaClipboardList} from "react-icons/fa"
-import {BsCheck2All} from "react-icons/bs"
-import {LiaSearchSolid} from "react-icons/lia"
-import {AiOutlinePlus} from "react-icons/ai"
-import {TbWorldCode} from "react-icons/tb"
+import { FaClipboardList } from "react-icons/fa";
+import { BsCheck2All } from "react-icons/bs";
+import { LiaSearchSolid } from "react-icons/lia";
+import { AiOutlinePlus } from "react-icons/ai";
+import { TbWorldCode } from "react-icons/tb";
 
 // components
-import CustomButton from '../components/CustomButton';
+import CustomButton from "../components/CustomButton";
+import Stats from "../components/main/Stats";
 
-interface MainProps{
+interface MainProps {
   header: string;
   instruction: string[];
 
@@ -26,86 +27,126 @@ interface MainProps{
   };
 }
 
+const Main: FunctionComponent<MainProps> = ({ currentInstruction }) => {
+  const { authUser } = useAuth();
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [copied, setCopied] = useState(false);
 
-const Main: FunctionComponent<MainProps> = ({currentInstruction}) => {
+  let header = "";
+  let instructions: any[] = [];
 
-    const { authUser } = useAuth();
-    const [activeDropdown, setActiveDropdown] = useState(null);
-    const[copied, setCopied] = useState(false)
-
-    let header = ""
-    let instructions: any[] = []
-
-    if(currentInstruction){
-      header = currentInstruction.header
-      instructions = currentInstruction.instruction
-    }
+  if (currentInstruction) {
+    header = currentInstruction.header;
+    instructions = currentInstruction.instruction;
+  }
 
   return (
     <main className={styles.main}>
-
-       <div className={styles.introduction}>
-        <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+      <div className={styles.introduction}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <h1 className={styles.title}>Tailored ChatGPT Instructions</h1>
-          <CustomButton label='brows' path='/links/search' color={bgColor.red} Icon={<TbWorldCode />} gradient={linearGradients.greenLinearGradient}/>
+          <CustomButton
+            label="brows"
+            path="/links/search"
+            color={bgColor.red}
+            Icon={<TbWorldCode />}
+            gradient={linearGradients.greenLinearGradient}
+          />
         </div>
-          <div className={styles.introductionContainer}>
-            <p className={styles.description}>
-              This platform provides you with a set of custom instructions that you can use to enhance your experience with ChatGPT. Navigate through different sets of instructions in the menu. You can copy these instructions and paste them into your ChatGPT custom instructions field to guide the AI in generating more tailored responses.
-            </p>
-          </div>
+        <div className={styles.introductionContainer}>
+          <p className={styles.description}>
+            This platform provides you with a set of custom instructions that
+            you can use to enhance your experience with ChatGPT. Navigate
+            through different sets of instructions in the menu. You can copy
+            these instructions and paste them into your ChatGPT custom
+            instructions field to guide the AI in generating more tailored
+            responses.
+          </p>
         </div>
+      </div>
 
       {authUser ? (
         <>
-        <div className={styles.createInstructionContainer}>
-          <p className={styles.customInstructionTxt}>Click here to create your own instructions</p>
-          <CustomButton  label='Create Instruction' path='links/createInstruction' color={bgColor.green} Icon={<AiOutlinePlus />} gradient={linearGradients.greenLinearGradient}/>
-      </div>
-      </>
-
-      ) : (
-       <div className={styles.notLoggedInSection}>
-         <p>Please remember to 
-              <span>
-                <Link href="/auth/signin" className={styles.loginShortcut} style={{color: bgColor.green}}>log in</Link> 
-              </span>
-              to fully enjoy the benefits. Once logged in, you&apos;ll have the option to create custom instructions.
+          <div className={styles.createInstructionContainer}>
+            <p className={styles.customInstructionTxt}>
+              Click here to create your own instructions
             </p>
-       </div>
+            <CustomButton
+              label="Create Instruction"
+              path="links/createInstruction"
+              color={bgColor.green}
+              Icon={<AiOutlinePlus />}
+              gradient={linearGradients.greenLinearGradient}
+            />
+          </div>
+        </>
+      ) : (
+        <div className={styles.notLoggedInSection}>
+          <p>
+            Please remember to
+            <span>
+              <Link
+                href="/auth/signin"
+                className={styles.loginShortcut}
+                style={{ color: bgColor.green }}
+              >
+                log in
+              </Link>
+            </span>
+            to fully enjoy the benefits. Once logged in, you&apos;ll have the
+            option to create custom instructions.
+          </p>
+        </div>
       )}
+      <div style={{maxWidth: 1000, margin:"0 auto"}}>
+        <Stats />
+      </div>
 
       <div className={styles.instruction__container}>
         <div className={styles.instruction__header}>
-        <h3 className={styles.instruction_title}>{header}</h3>
+          <h3 className={styles.instruction_title}>{header}</h3>
           {/* Library lets us copy the text */}
-          <CopyToClipboard 
-            text={instructions.join('\n')}
-          >
-            <div onClick={() => setCopied(true)} style={{display: "flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
-            { copied ? (
+          <CopyToClipboard text={instructions.join("\n")}>
+            <div
+              onClick={() => setCopied(true)}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              {copied ? (
                 <>
-                <BsCheck2All size={20}/>
-              </>
-            ): (
-              <>
-                <FaClipboardList size={20}/>
-              </>
-            )}
-            <span className={styles.copyToClipboard__text}>{copied ? "copied!" : "copy instruction"}</span>
+                  <BsCheck2All size={20} />
+                </>
+              ) : (
+                <>
+                  <FaClipboardList size={20} />
+                </>
+              )}
+              <span className={styles.copyToClipboard__text}>
+                {copied ? "copied!" : "copy instruction"}
+              </span>
             </div>
           </CopyToClipboard>
         </div>
-          <div className={styles.instruction__list}>{instructions.map((instruction, index) =>(
-            <li className={styles.instruction__item} key={index}>{instruction}</li>
-            ))}
-          </div>
-
+        <div className={styles.instruction__list}>
+          {instructions.map((instruction, index) => (
+            <li className={styles.instruction__item} key={index}>
+              {instruction}
+            </li>
+          ))}
         </div>
-      </main>
+      </div>
+    </main>
+  );
+};
 
-  
-  )
-}
-
-export default Main
+export default Main;

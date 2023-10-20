@@ -1,57 +1,72 @@
-import React, { Dispatch, FunctionComponent, SetStateAction } from 'react'
-import styles from '../../styles/sidebar/Instructions.module.css'
-import { BsCodeSquare } from 'react-icons/bs'
-import appStyles from '../../styles/colors';
+import React, {
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  useState,
+} from "react";
+import styles from "../../styles/sidebar/Instructions.module.css";
+import { BsCodeSquare } from "react-icons/bs";
+import appStyles from "../../styles/colors";
 
 interface InstructionProps {
   instructions: Array<{
     header: string;
-    category: string
-    instruction: string[]
-  }>
-  title: string
-  setCurrentInstruction?: Dispatch<SetStateAction<{
-    header: string;
-    category?: string;
+    category: string;
     instruction: string[];
-  }>>;
+  }>;
+  title: string;
+  setCurrentInstruction?: Dispatch<
+    SetStateAction<{
+      header: string;
+      category?: string;
+      instruction: string[];
+    }>
+  >;
 }
 
+const Instructions: FunctionComponent<InstructionProps> = ({
+  instructions,
+  setCurrentInstruction,
+  title,
+}) => {
+  const [isActive, setIsActive] = useState(false);
 
-const Instructions: FunctionComponent<InstructionProps> = ({instructions, setCurrentInstruction, title}) => {
-
-  const handleInstructionClick = (instruction: {header: string, instruction: string[]}) => {
+  const handleInstructionClick = (instruction: {
+    header: string;
+    instruction: string[];
+  }) => {
     // passing the current clicked instruction to the state in root file (index.js)
-    if(setCurrentInstruction){
-      setCurrentInstruction(instruction)
+    if (setCurrentInstruction) {
+      setCurrentInstruction(instruction);
     }
-  }
-  
+  };
 
   return (
     <div className={styles.instructions__container}>
-      <h3 className={styles.instruction__label} style={{color: appStyles.colors.text, fontSize: appStyles.fontSize.text, fontWeight: appStyles.fontVariant.bold}}>{title}</h3>
+      <h3 className={styles.instruction__label}>{title}</h3>
       <ul className={styles.instruction__list}>
-       {/* Looping trough the array of default instructions  */}
-       {instructions.map((instruction, index) => (
+        {/* Looping trough the array of default instructions  */}
+        {instructions.map((instruction, index) => (
+          <li className={styles.instruction} key={index}>
+            <button
+              className={styles.instructionButton}
+              onClick={() => handleInstructionClick(instruction)}
+            >
+              <div
+                style={{ display: "flex", gap: "10px", alignItems: "center" }}
+              >
+                <BsCodeSquare />
+                <span>
+                  {instruction.header.slice(0, 20)}
+                  {instruction.header.length < 21 ? "" : "..."}
+                </span>
+              </div>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-        <li className={styles.instruction} key={index}>
-          <button 
-            style={{padding: appStyles.padding.small, fontSize: appStyles.fontSize.listItem}}
-            className={styles.instructionButton} 
-            onClick={() => handleInstructionClick(instruction)} >
-            <div style={{display:"flex", gap: "10px", alignItems:"center"}}>
-              <BsCodeSquare />
-              <span>{instruction.header.slice(0,20)}{instruction.header.length < 21 ? "": "..."}</span>
-            </div>
-          </button>
-        </li>
-
-         ))}
-
-     </ul>
-   </div>
-  )
-}
-
-export default Instructions
+export default Instructions;
