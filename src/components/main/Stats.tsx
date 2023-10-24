@@ -55,14 +55,13 @@ const Stats = () => {
           <p style={{lineHeight:"30px"}}>{stat.description}</p>
         </div>
 
-        <div className={style.right__side} style={{ display: 'flex', flexDirection:"column", gap: 10}}>
+        <div className={style.right__side} style={{ display: 'flex', flexDirection:"column", gap: 15}}>
           {/* Pre-Instruction bar */}
-          <p style={{margin:0, padding:0}}>Before</p>
           <div className={visible ? style.bar : ""} style={{ width: `${stat.pre}%`, background: linearGradients.redLinearGradient, transition: 'width 2s', padding:".25rem .5rem", borderRadius: ".4rem"}}>
             {stat.pre} %
           </div>
           {/* Post-Instruction bar */}
-          <p style={{margin:0, padding:0}}>After</p>
+          
           <div className={visible ? style.bar : ""} style={{ width: `${stat.post}%`, background: linearGradients.greenLinearGradient, transition: 'width 2s', marginBottom: 30, padding:".25rem .5rem", borderRadius: ".4rem"}}>
             {stat.post} %
           </div>

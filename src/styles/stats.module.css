@@ -2,7 +2,6 @@
 .stats__container{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0rem;
 }
 .stats__container > * {
   margin-bottom: 30px;
@@ -16,12 +15,13 @@
 }
 .right__side{
   border-radius: 0rem .375rem  4rem 0rem;
-  /* background-color: rgba(0, 0, 0, 0.2); */
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
 }
 
 @keyframes fillBar {
   from {
-    width: 10%;
+    width: 7%;
   }
   to {
  
@@ -31,4 +31,23 @@
 .bar {
   animation: fillBar 2s ease-out;
   /* other styles... */
+}
+
+@media screen and (max-width: 1000px) {
+  .stats__container{
+    grid-template-columns: 1fr;
+  }
+  .stats__container > * {
+    margin-bottom: 0;
+  }
+  .right__side{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .left__side, .right__side {
+    padding: 0;
+  }
+  .title{
+    font-size: 1.5rem;
+  }
+  
 }
