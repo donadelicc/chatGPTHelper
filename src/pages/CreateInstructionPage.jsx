@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/hei.module.css'
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import {getAuth} from "firebase/auth";
+import { getFirestore, collection, doc, setDoc, getDoc, addDoc } from 'firebase/firestore';
+import { getAuth } from "firebase/auth";
 
 
 const gloabalDb = 'globalInstruction'
-const personalDb = 'user'
+const personalDb = 'users'
 
 
 const CreateInstructionPage = () => {
@@ -61,35 +61,42 @@ const CreateInstructionPage = () => {
       const sentenceArray = instructionContent.split("\n");
 
       const instruction = {
-        header: instructionType,
+        name: instructionType,
         category: instructionCategory,
         instructionArray: sentenceArray,
       };
       console.table(instruction)
 
-      // Referanse til brukerens dokument
-      const userRef = db.collection(personalDb).doc(auth.currentUser.uid);
-
-      // Legg til eller oppdater brukerinfo
-      userRef.set({
-        email: auth.currentUser.email,
-      }, { merge: true })  // { merge: true } vil sørge for at eksisterende data ikke overskrives
-        .then(() => {
+      async function addInstruction() {
+        try {
+          // Get the user document
+          const userRef = doc(collection(db, personalDb), auth.currentUser.uid);
+          const userDoc = await getDoc(userRef);
+      
+          if (userDoc.exists()) {
+            console.log('User data:', userDoc.data());
+          } else {
+            console.log('No such document!');
+          }
+      
+          // Add or update user info
+          await setDoc(userRef, { 
+            email: auth.currentUser.email,
+          }, { merge: true });
+      
           console.log('User added to database');
-        })
-        .catch((error) => {
-          console.error('Error adding user to database: ', error);
-        });
-
-      // Legg til instruksjon i brukerens sub-kolleksjon
-      userRef.collection('instructions').add(instruction)
-        .then((docRef) => {
+      
+          // Add instruction to user's sub-collection
+          const docRef = await addDoc(collection(userRef, 'instructions'), instruction);
+      
           console.log('Instruction added with ID: ', docRef.id);
-        })
-        .catch((error) => {
-          console.error('Error adding instruction: ', error);
-        });
+      
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
 
+  addInstruction();      
 
     }
   };
