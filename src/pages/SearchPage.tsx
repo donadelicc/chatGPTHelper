@@ -155,8 +155,8 @@ const SearchPage = () => {
                   <div className={styles.category__container} key={category}>
                     <h3 className={styles.category__title}>{category}</h3>
                     <div className={styles.categories}>
-                      {filteredInstructions.map((instruction) => (
-                        <CategoryButton label={instruction.header} Icon={instruction.Icon}/>
+                      {filteredInstructions.map((instruction, index) => (
+                        <CategoryButton label={instruction.header} Icon={instruction.Icon} key={index}/>
                       ))}
                     </div>
                   </div>
