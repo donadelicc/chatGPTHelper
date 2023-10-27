@@ -4,6 +4,7 @@ import styles from '../../styles/search/instructionItem.module.css'
 
 interface InstructionProps {
     header: string;
+    index: number;
     instruction: string[];
 }
 
@@ -15,9 +16,9 @@ export const bgColor = {
 }
 
 
-const InstructionItem: React.FunctionComponent<InstructionProps> = ({header}) => {
+const InstructionItem: React.FunctionComponent<InstructionProps> = ({header, index}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={index}>
       <h3 className={styles.title}>{header}</h3>
     </div>
   )

@@ -11,7 +11,7 @@ const InstructionList = () => {
   return (
     <div style={{display:"flex", flexDirection:"column", gap:10, height:"100%", overflow:"scroll"}}>
      {instructions.map((instruction, index) => (
-      <InstructionItem key={index} header={instruction.header} instruction={instruction.instruction} />
+      <InstructionItem index={index} header={instruction.header} instruction={instruction.instruction} />
      ))}
     </div>
   )
