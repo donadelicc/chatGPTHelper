@@ -10,8 +10,8 @@ const InstructionList = () => {
   
   return (
     <div style={{display:"flex", flexDirection:"column", gap:10, height:"100%", overflow:"scroll"}}>
-     {instructions.map((instruction) => (
-      <InstructionItem header={instruction.header} instruction={instruction.instruction} />
+     {instructions.map((instruction, index) => (
+      <InstructionItem key={index} header={instruction.header} instruction={instruction.instruction} />
      ))}
     </div>
   )
