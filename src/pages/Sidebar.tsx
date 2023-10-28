@@ -10,42 +10,26 @@ import {bgColor, linearGradients} from '../styles/colors'
 
 import CustomButton from "../components/CustomButton"
 import Instructions from "../components/sidebar/Instructions"
+import useFirestoreData from '../hooks/useFirestoreData';
+import { DataItem } from '../hooks/useFirestoreData';
+
 // * Responsible for navigating to the default and custom instructions.
 // * If logged in, let the user navigate to the "New instructions" page.
 
 interface SidebarProps {
-  defaultInstructionsArray: {
-    header: string;
-    instruction: string[];
-  }[]
-
-  setCurrentInstruction: Dispatch<SetStateAction<{
-    header: string;
-    instruction: string[];
-  }>>
-
-  customInstructionsArray: {
-    header: string;
-    instruction: string[];
-  }[]
+  setCurrentInstruction: Dispatch<SetStateAction<DataItem>>;
 }
 
-const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, customInstructionsArray, setCurrentInstruction}) => {
+const Sidebar: FunctionComponent<SidebarProps> = ({ setCurrentInstruction }) => {
   const { authUser } = useAuth();
 
+  // We are feching data on every render, but we can use the useEffect hook to only fetch data when the component mounts.
+  const { data, loading } = useFirestoreData();  // Fetching the Firestore data here
 
-
-  const [defaultInstructions] = useState(defaultInstructionsArray)
-  const [customInstructions] = useState(customInstructionsArray)
-  
 
   const [isOpen, setIsOpen] = useState(true)
   // TODO : Some how get the users custom instructions labels, 
   // TODO : Display the instruction labels below 
-
-
-  // JAbba 
-
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -61,6 +45,14 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
     setIsOpen(prev => !prev)
   }
   if (isOpen){
+
+    
+    // Fjene denne 
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+    
+
   // SIDEBAR
   return (
     <div className={styles.container}>
@@ -86,48 +78,20 @@ const Sidebar:FunctionComponent<SidebarProps> = ({defaultInstructionsArray, cust
             <TbLayoutSidebar size={20}/>
           </button>
         </div>
-        {/* custom component containing list of instructions */}
-        
-    
 
-        {/* { 
-          defaultInstructions && 
-            <Instructions title="the 10 hottest instructions" instructions={defaultInstructions} setCurrentInstruction={setCurrentInstruction} /> 
-        }
-
-        { 
-          customInstructions && 
-            <Instructions title="my custom instructions" instructions={customInstructions} setCurrentInstruction={setCurrentInstruction} /> 
-        } */}
 
     {authUser ? (
       <>
-        {defaultInstructions && (
-          <Instructions
-            title="the 10 hottest instructions"
-            instructions={defaultInstructions}
-            setCurrentInstruction={setCurrentInstruction}
-          />
-        )}
-
-        {customInstructions && (
-          <Instructions
-            title="my custom instructions"
-            instructions={customInstructions}
-            setCurrentInstruction={setCurrentInstruction}
-          />
-        )}
+        {data && (
+        <Instructions
+          title="Top 10 hottest instructions"
+          instructions={data}  // Passing the data to Instructions component
+          setCurrentInstruction={setCurrentInstruction}
+        />
+      )}
       </>
     ) : (
-      <>
-        {defaultInstructions && (
-          <Instructions
-            title="the 10 hottest instructions"
-            instructions={defaultInstructions}
-            setCurrentInstruction={setCurrentInstruction}
-          />
-        )}
-      </>
+      <p>YOUR INSTRUCTIONS</p>
     )}
 
 

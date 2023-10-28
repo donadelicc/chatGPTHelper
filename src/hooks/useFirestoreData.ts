@@ -4,7 +4,7 @@ import { db } from '../config/firebase.js';
 import { collection, getDocs } from 'firebase/firestore';
 
 // Define the shape of your data
-interface DataItem {
+export interface DataItem {
   name: string;
   genre: string;
   instruction: string;
