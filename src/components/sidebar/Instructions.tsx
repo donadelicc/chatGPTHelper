@@ -1,7 +1,7 @@
 import React, { Dispatch, FunctionComponent, SetStateAction } from 'react'
 import styles from '../../styles/sidebar/Instructions.module.css'
 import { BsCodeSquare } from 'react-icons/bs'
-import {DataItem} from '../../hooks/useFirestoreData'
+import { DataItem } from '../../hooks/useFirestoreData'
 
 
 
@@ -11,12 +11,12 @@ interface InstructionProps {
   setCurrentInstruction?: Dispatch<SetStateAction<DataItem>>;
 }
 
-const Instructions: FunctionComponent<InstructionProps> = ({instructions, title, setCurrentInstruction}) => {
-  
+const Instructions: FunctionComponent<InstructionProps> = ({ instructions, title, setCurrentInstruction }) => {
+
   console.log(instructions); // This is the data from Firestore Database
-  
+
   const handleInstructionClick = (instruction: DataItem) => {
-    if(setCurrentInstruction){
+    if (setCurrentInstruction) {
       setCurrentInstruction(instruction)
     }
   }
@@ -27,19 +27,23 @@ const Instructions: FunctionComponent<InstructionProps> = ({instructions, title,
       <h3 className={styles.instruction__label}>{title}</h3>
 
       <ul className={styles.instruction__list}>
-       {instructions.map((instruction, index) => (
-        <li className={styles.instruction} key={index}>   {/* Consider using a unique identifier (instence key from firestore?) from your data as the key instead. */}
-          <button className={styles.instructionButton} onClick={() => handleInstructionClick(instruction)}>
-            <div style={{display:"flex", gap: "10px", alignItems:"center"}}>
-              <BsCodeSquare />
-              <span>{instruction.name.slice(0,20)}{instruction.name.length < 21 ? "" : "..."}</span>
-            </div>
-          </button>
-        </li>
-      ))}
+        {instructions.map((instruction, index) => (
+          <li className={styles.instruction} key={index}>   {/* Consider using a unique identifier (instence key from firestore?) from your data as the key instead. */}
+            <button className={styles.instructionButton} onClick={() => handleInstructionClick(instruction)}>
+              <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                <BsCodeSquare />
+                <span>
+                  {instruction.name ? instruction.name.slice(0, 20) : ''}
+                  {instruction.name && instruction.name.length > 20 ? "..." : ""}
+                </span>
 
-     </ul>
-   </div>
+              </div>
+            </button>
+          </li>
+        ))}
+
+      </ul>
+    </div>
   )
 }
 
